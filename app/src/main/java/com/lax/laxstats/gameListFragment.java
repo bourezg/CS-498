@@ -12,19 +12,19 @@ import android.widget.ListView;
 import java.util.List;
 
 
-public class playerListFragment extends Fragment implements AdapterView.OnItemClickListener {
-    private playerManager pm = playerManager.getInstance();
-    private List<player> pList = pm.getPlayers();
+public class gameListFragment extends Fragment implements AdapterView.OnItemClickListener {
+    private gameManager pm = gameManager.getInstance();
+    private List<game> pList = pm.getGames();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_player_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_game_list, container, false);
 
-        ArrayAdapter<player> adapter = new ArrayAdapter<player>(getActivity(), R.layout.fragment_player_list_item, pList);
+        ArrayAdapter<game> adapter = new ArrayAdapter<game>(getActivity(), R.layout.fragment_game_list_item, pList);
 
-        ListView listView = (ListView) v.findViewById(R.id.playerListView);
+        ListView listView = (ListView) v.findViewById(R.id.gameListView);
         if (listView != null) {
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(this);

@@ -11,24 +11,22 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class playerDetailFragment extends Fragment {
-    private playerManager pm = playerManager.getInstance();
-    private List<player> players = pm.getPlayers();
+public class gameDetailFragment extends Fragment {
+    private gameManager pm = gameManager.getInstance();
+    private List<game> games = pm.getGames();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_player_detail, container, false);
+        return inflater.inflate(R.layout.fragment_game_detail, container, false);
     }
 
     public void loadPosition (int position) {
-        player p = players.get(position);
+        game p = games.get(position);
         if (p != null) {
             Activity activity = getActivity();
-            TextView tv = (TextView) activity.findViewById(R.id.editFirstNameText);
-            tv.setText(p.getFirstName());
-            tv = (TextView) activity.findViewById(R.id.editLastNameText);
-            tv.setText(p.getLastName());
+            TextView tv = (TextView) activity.findViewById(R.id.editGameNumberField);
+            tv.setText(p.getGameNumber());
             //add more changing stuff here
         }
     }

@@ -5,15 +5,15 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 
 
-public class playerDetailActivity extends Activity {
+public class gameDetailActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_detail);
+        setContentView(R.layout.activity_game_detail);
 
         FragmentManager fragmentManager = getFragmentManager();
-        playerDetailFragment fragment = (playerDetailFragment) fragmentManager.findFragmentById(R.id.fragment_player_detail);
+        gameDetailFragment fragment = (gameDetailFragment) fragmentManager.findFragmentById(R.id.fragment_game_detail);
         if (fragment != null) {
             int position = 0;
             position = getIntent().getIntExtra("POSITION",0);

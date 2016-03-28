@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
 android:layout_height="match_parent">
 
-<fragment android:name="com.lax.laxstats.playerDetailFragment"
-    android:id="@+id/fragment_player_detail"
+<fragment android:name="com.lax.laxstats.gameDetailFragment"
+    android:id="@+id/fragment_game_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout="@layout/activity_player_detail" />
+    tools:layout="@layout/activity_game_detail" />
 
 </FrameLayout>

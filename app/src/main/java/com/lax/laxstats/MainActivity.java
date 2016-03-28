@@ -14,13 +14,13 @@ public class MainActivity extends Activity {
     }
 
     public void onItemClick(int position) {
-        if (findViewById(R.id.activity_player_list) != null) {
-            Intent intent = new Intent(this, playerDetailActivity.class);
+        if (findViewById(R.id.activity_game_list) != null) {
+            Intent intent = new Intent(this, gameDetailActivity.class);
             intent.putExtra("POSITION", position);
             startActivity(intent);
         } else {
             //Running in large screen mode.
-            playerDetailFragment fragment = (playerDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_player_detail);
+            gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
             if (fragment != null) {
                 fragment.loadPosition(position);
             }
