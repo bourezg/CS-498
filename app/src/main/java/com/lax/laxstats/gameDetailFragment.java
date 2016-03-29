@@ -24,9 +24,9 @@ public class gameDetailFragment extends Fragment {
     public void loadPosition (int position) {
         game p = games.get(position);
         if (p != null) {
-            Activity activity = getActivity();
+          Activity activity = getActivity();
             TextView tv = (TextView) activity.findViewById(R.id.editGameNumberField);
-            tv.setText(p.getGameNumber());
+            tv.setText(Integer.toString(p.getGameNumber()));
             //add more changing stuff here
         }
     }

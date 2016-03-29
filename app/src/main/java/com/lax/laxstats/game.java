@@ -17,6 +17,7 @@ public class game {
         this.minutesPlayed = 0;
         this.turnovers =0;
     }
+    public String toString(){return "Game" + " " + gameNumber;}
     public int getGameNumber(){return gameNumber;}
     public int getShots() {return shots;}
     public int getGoals() {return goals;}
