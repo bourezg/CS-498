@@ -19,11 +19,11 @@ public class gameManager {
     }
 
     public gameManager() {
-        game p0 = new game(0);
-        game p1 = new game(1);
-        game p2 = new game(2);
-        game p3 = new game(3);
-        game p4 = new game(4);
+        game p0 = new game("0");
+        game p1 = new game("1");
+        game p2 = new game("2");
+        game p3 = new game("3");
+        game p4 = new game("4");
 
 
         games = new Vector<game>();

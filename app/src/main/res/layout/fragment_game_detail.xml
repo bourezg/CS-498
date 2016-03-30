@@ -16,17 +16,419 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Game Number: "/>
+        android:text="Game Name: "/>
 
     <EditText
-        android:id="@+id/editGameNumberField"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/gameNumberField"
-        android:layout_alignBaseline="@id/gameNumberField"/>
+        android:imeOptions="actionDone"
+        android:id="@+id/editText"
+        android:layout_toRightOf="@+id/gameNumberField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/gameNumberField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingBottom="15dp"
+        android:text="Goals: "
+        android:layout_below="@+id/shotsText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/goalsText" />
+
+    <Button
+        android:id="@+id/decrease"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="decreaseMinutesPlayed"
+        android:text="-"
+        android:layout_toLeftOf="@+id/increase"
+        android:layout_toStartOf="@+id/increase"
+        android:layout_below="@+id/editText"
+        android:layout_alignBottom="@+id/turnoversText" />
+
+    <TextView
+        android:id="@+id/MinutesPlayedNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/turnoversText"
+        android:layout_toRightOf="@+id/turnoversText"
+        android:layout_toEndOf="@+id/turnoversText" />
+
+    <Button
+        android:id="@+id/increase"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="increaseMinutesPlayed"
+        android:text="+"
+        android:layout_alignTop="@+id/decrease"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_alignBottom="@+id/decrease" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingBottom="15dp"
+        android:text="Shots: "
+        android:layout_below="@+id/groundBallsText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/shotsText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingBottom="15dp"
+        android:text="Assists: "
+        android:layout_below="@+id/foulsText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/assistsText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingBottom="15dp"
+        android:text="Draw Controls: "
+        android:id="@+id/drawControlsText"
+        android:layout_below="@+id/assistsText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingBottom="15dp"
+        android:text="Ground Balls: "
+        android:id="@+id/groundBallsText"
+        android:layout_below="@+id/drawControlsText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingBottom="15dp"
+        android:text="Caused Turnovers: "
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/causedTurnoversText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingBottom="15dp"
+        android:text="Turnovers: "
+        android:id="@+id/textView"
+        android:layout_below="@+id/turnoversText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingBottom="15dp"
+        android:text="Fouls: "
+        android:layout_below="@+id/causedTurnoversText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/foulsText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingBottom="15dp"
+        android:text="Minutes Played: "
+        android:layout_below="@+id/gameNumberField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/turnoversText" />
+
+    <Button
+        android:id="@+id/turnoversMinusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="decreaseTurnovers"
+        android:text="-"
+        android:layout_below="@+id/decrease"
+        android:layout_alignLeft="@+id/decrease"
+        android:layout_alignStart="@+id/decrease"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toLeftOf="@+id/increase"
+        android:layout_toStartOf="@+id/increase" />
+
+    <Button
+        android:id="@+id/turnoversPlusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="increaseTurnovers"
+        android:text="+"
+        android:layout_alignBottom="@+id/turnoversMinusButton"
+        android:layout_toRightOf="@+id/turnoversMinusButton"
+        android:layout_toEndOf="@+id/turnoversMinusButton"
+        android:layout_below="@+id/decrease" />
+
+    <Button
+        android:id="@+id/causedTurnoversPlusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="increaseCausedTurnovers"
+        android:text="+"
+        android:layout_alignTop="@+id/causedTurnoversText"
+        android:layout_toRightOf="@+id/turnoversMinusButton"
+        android:layout_toEndOf="@+id/turnoversMinusButton"
+        android:layout_above="@+id/foulsPlusButton" />
+
+    <Button
+        android:id="@+id/foulsPlusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="increaseFouls"
+        android:text="+"
+        android:layout_below="@+id/causedTurnoversText"
+        android:layout_alignLeft="@+id/causedTurnoversPlusButton"
+        android:layout_alignStart="@+id/causedTurnoversPlusButton"
+        android:layout_above="@+id/assistsText" />
+
+    <Button
+        android:id="@+id/assistsPlusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="increaseAssists"
+        android:text="+"
+        android:layout_below="@+id/foulsPlusButton"
+        android:layout_alignLeft="@+id/foulsPlusButton"
+        android:layout_alignStart="@+id/foulsPlusButton"
+        android:layout_alignBottom="@+id/assistsText" />
+
+    <Button
+        android:id="@+id/drawControlsPlusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="increaseDrawControls"
+        android:text="+"
+        android:layout_alignLeft="@+id/assistsPlusButton"
+        android:layout_alignStart="@+id/assistsPlusButton"
+        android:layout_above="@+id/groundBallsPlusButton"
+        android:layout_below="@+id/assistsText" />
+
+    <Button
+        android:id="@+id/groundBallsPlusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="increaseGroundBalls"
+        android:text="+"
+        android:layout_below="@+id/drawControlsText"
+        android:layout_alignLeft="@+id/drawControlsPlusButton"
+        android:layout_alignStart="@+id/drawControlsPlusButton"
+        android:layout_alignBottom="@+id/groundBallsText" />
+
+    <Button
+        android:id="@+id/shotsPlusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="increaseShots"
+        android:text="+"
+        android:layout_below="@+id/groundBallsText"
+        android:layout_alignLeft="@+id/groundBallsPlusButton"
+        android:layout_alignStart="@+id/groundBallsPlusButton"
+        android:layout_above="@+id/goalsPlusButton" />
+
+    <Button
+        android:id="@+id/goalsPlusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="increaseGoals"
+        android:text="+"
+        android:layout_below="@+id/shotsText"
+        android:layout_alignLeft="@+id/shotsPlusButton"
+        android:layout_alignStart="@+id/shotsPlusButton"
+        android:layout_alignBottom="@+id/goalsText" />
+
+    <Button
+        android:id="@+id/causedTurnoversMinusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="decreaseCausedTurnovers"
+        android:text="-"
+        android:layout_alignTop="@+id/causedTurnoversPlusButton"
+        android:layout_alignLeft="@+id/turnoversMinusButton"
+        android:layout_alignStart="@+id/turnoversMinusButton"
+        android:layout_above="@+id/foulsPlusButton" />
+
+    <Button
+        android:id="@+id/foulsMinusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="decreaseFouls"
+        android:text="-"
+        android:layout_below="@+id/causedTurnoversPlusButton"
+        android:layout_alignLeft="@+id/causedTurnoversMinusButton"
+        android:layout_alignStart="@+id/causedTurnoversMinusButton"
+        android:layout_above="@+id/assistsPlusButton" />
+
+    <Button
+        android:id="@+id/assistsMinusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="decreaseAssists"
+        android:text="-"
+        android:layout_below="@+id/foulsPlusButton"
+        android:layout_alignLeft="@+id/foulsMinusButton"
+        android:layout_alignStart="@+id/foulsMinusButton"
+        android:layout_above="@+id/drawControlsPlusButton" />
+
+    <Button
+        android:id="@+id/drawControlsMinusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="decreaseDrawControls"
+        android:text="-"
+        android:layout_alignTop="@+id/drawControlsPlusButton"
+        android:layout_alignLeft="@+id/assistsMinusButton"
+        android:layout_alignStart="@+id/assistsMinusButton"
+        android:layout_above="@+id/groundBallsPlusButton" />
+
+    <Button
+        android:id="@+id/groundBallsMinusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="decreaseGroundBalls"
+        android:text="-"
+        android:layout_below="@+id/drawControlsPlusButton"
+        android:layout_alignLeft="@+id/drawControlsMinusButton"
+        android:layout_alignStart="@+id/drawControlsMinusButton"
+        android:layout_alignBottom="@+id/groundBallsPlusButton" />
+
+    <Button
+        android:id="@+id/shotsMinusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="decreaseShots"
+        android:text="-"
+        android:layout_alignTop="@+id/shotsPlusButton"
+        android:layout_alignLeft="@+id/groundBallsMinusButton"
+        android:layout_alignStart="@+id/groundBallsMinusButton"
+        android:layout_above="@+id/goalsPlusButton" />
+
+    <Button
+        android:id="@+id/goalsMinusButton"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:onClick="decreaseGoals"
+        android:text="-"
+        android:layout_below="@+id/shotsPlusButton"
+        android:layout_alignLeft="@+id/shotsMinusButton"
+        android:layout_alignStart="@+id/shotsMinusButton"
+        android:layout_alignBottom="@+id/goalsPlusButton" />
+
+    <TextView
+        android:id="@+id/turnoversNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/turnoversText"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/causedTurnoversNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_alignTop="@+id/causedTurnoversText"
+        android:layout_toRightOf="@+id/causedTurnoversText"
+        android:layout_toEndOf="@+id/causedTurnoversText" />
+
+    <TextView
+        android:id="@+id/foulsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/causedTurnoversText"
+        android:layout_toRightOf="@+id/foulsText"
+        android:layout_toEndOf="@+id/foulsText" />
+
+    <TextView
+        android:id="@+id/assistsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/assistsText"
+        android:layout_toRightOf="@+id/assistsText"
+        android:layout_toEndOf="@+id/assistsText" />
+
+    <TextView
+        android:id="@+id/drawControlsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/drawControlsText"
+        android:layout_toRightOf="@+id/drawControlsText"
+        android:layout_toEndOf="@+id/drawControlsText" />
+
+    <TextView
+        android:id="@+id/groundBallsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/drawControlsText"
+        android:layout_toRightOf="@+id/groundBallsText"
+        android:layout_toEndOf="@+id/groundBallsText" />
+
+    <TextView
+        android:id="@+id/shotsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/shotsText"
+        android:layout_alignLeft="@+id/goalsNumber"
+        android:layout_alignStart="@+id/goalsNumber" />
+
+    <TextView
+        android:id="@+id/goalsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/shotsText"
+        android:layout_toRightOf="@+id/goalsText"
+        android:layout_toEndOf="@+id/goalsText" />
 
 
 </RelativeLayout>
