@@ -19,6 +19,8 @@ public class MainActivity extends Activity {
     public void onResume(){
         super.onResume();
         //UPDATES TEXTVIEW TO NEW GAME NAME
+        gameListFragment.adapter.notifyDataSetChanged();
+
     }
     
 
@@ -33,11 +35,10 @@ public class MainActivity extends Activity {
 
     }
 
-
     public void createNewGame(View view){
         game newGame = new game("New Game");
         gameListFragment.pm.addAGame(newGame);
-        //call some function to update view
+        gameListFragment.adapter.notifyDataSetChanged();
     }
 
 }

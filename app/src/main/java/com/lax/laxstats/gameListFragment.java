@@ -15,7 +15,7 @@ import java.util.List;
 public class gameListFragment extends Fragment implements AdapterView.OnItemClickListener {
     public static gameManager pm;
     List<game> pList;
-    ArrayAdapter<game> adapter;
+    public static ArrayAdapter<game> adapter;
     View v;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,4 +42,6 @@ public class gameListFragment extends Fragment implements AdapterView.OnItemClic
         // Pass to the main activity
         ((MainActivity)getActivity()).onItemClick(position);
     }
+
+
 }
