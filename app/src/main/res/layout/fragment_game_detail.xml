@@ -11,24 +11,6 @@
 
 
     <TextView
-        android:id="@+id/gameNumberField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:paddingBottom="15dp"
-        android:text="Game Name: "/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:imeOptions="actionDone"
-        android:id="@+id/editText"
-        android:layout_toRightOf="@+id/gameNumberField"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/gameNumberField" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -47,8 +29,8 @@
         android:text="-"
         android:layout_toLeftOf="@+id/increase"
         android:layout_toStartOf="@+id/increase"
-        android:layout_below="@+id/editText"
-        android:layout_alignBottom="@+id/turnoversText" />
+        android:layout_alignBottom="@+id/turnoversText"
+        android:layout_alignTop="@+id/MinutesPlayedNumber" />
 
     <TextView
         android:id="@+id/MinutesPlayedNumber"
@@ -58,8 +40,8 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_alignTop="@+id/turnoversText"
-        android:layout_toRightOf="@+id/turnoversText"
-        android:layout_toEndOf="@+id/turnoversText" />
+        android:layout_alignLeft="@+id/turnoversNumber"
+        android:layout_alignStart="@+id/turnoversNumber" />
 
     <Button
         android:id="@+id/increase"
@@ -68,9 +50,11 @@
         android:onClick="increaseMinutesPlayed"
         android:text="+"
         android:layout_alignTop="@+id/decrease"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_alignBottom="@+id/decrease" />
+        android:layout_alignRight="@+id/editGameName"
+        android:layout_alignBottom="@+id/decrease"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -157,10 +141,11 @@
         android:textSize="20sp"
         android:paddingBottom="15dp"
         android:text="Minutes Played: "
-        android:layout_below="@+id/gameNumberField"
+        android:id="@+id/turnoversText"
+        android:layout_marginTop="72dp"
+        android:layout_below="@+id/editGameName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/turnoversText" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/turnoversMinusButton"
@@ -347,9 +332,9 @@
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_below="@+id/turnoversText"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView" />
+        android:layout_below="@+id/decrease"
+        android:layout_alignLeft="@+id/foulsNumber"
+        android:layout_alignStart="@+id/foulsNumber" />
 
     <TextView
         android:id="@+id/causedTurnoversNumber"
@@ -358,11 +343,10 @@
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:layout_alignTop="@+id/causedTurnoversText"
-        android:layout_toRightOf="@+id/causedTurnoversText"
-        android:layout_toEndOf="@+id/causedTurnoversText" />
+        android:layout_alignBaseline="@+id/causedTurnoversMinusButton"
+        android:layout_alignBottom="@+id/causedTurnoversMinusButton"
+        android:layout_alignLeft="@+id/turnoversNumber"
+        android:layout_alignStart="@+id/turnoversNumber" />
 
     <TextView
         android:id="@+id/foulsNumber"
@@ -371,9 +355,11 @@
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_below="@+id/causedTurnoversText"
-        android:layout_toRightOf="@+id/foulsText"
-        android:layout_toEndOf="@+id/foulsText" />
+        android:layout_below="@+id/causedTurnoversMinusButton"
+        android:layout_toLeftOf="@+id/foulsMinusButton"
+        android:layout_toStartOf="@+id/foulsMinusButton"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp" />
 
     <TextView
         android:id="@+id/assistsNumber"
@@ -382,9 +368,10 @@
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_alignTop="@+id/assistsText"
-        android:layout_toRightOf="@+id/assistsText"
-        android:layout_toEndOf="@+id/assistsText" />
+        android:layout_alignBaseline="@+id/assistsMinusButton"
+        android:layout_alignBottom="@+id/assistsMinusButton"
+        android:layout_alignLeft="@+id/foulsNumber"
+        android:layout_alignStart="@+id/foulsNumber" />
 
     <TextView
         android:id="@+id/drawControlsNumber"
@@ -393,20 +380,9 @@
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_alignTop="@+id/drawControlsText"
-        android:layout_toRightOf="@+id/drawControlsText"
-        android:layout_toEndOf="@+id/drawControlsText" />
-
-    <TextView
-        android:id="@+id/groundBallsNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_below="@+id/drawControlsText"
-        android:layout_toRightOf="@+id/groundBallsText"
-        android:layout_toEndOf="@+id/groundBallsText" />
+        android:layout_alignTop="@+id/drawControlsMinusButton"
+        android:layout_alignLeft="@+id/assistsNumber"
+        android:layout_alignStart="@+id/assistsNumber" />
 
     <TextView
         android:id="@+id/shotsNumber"
@@ -415,9 +391,9 @@
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_alignTop="@+id/shotsText"
-        android:layout_alignLeft="@+id/goalsNumber"
-        android:layout_alignStart="@+id/goalsNumber" />
+        android:layout_below="@+id/groundBallsMinusButton"
+        android:layout_alignLeft="@+id/drawControlsNumber"
+        android:layout_alignStart="@+id/drawControlsNumber" />
 
     <TextView
         android:id="@+id/goalsNumber"
@@ -426,9 +402,86 @@
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_below="@+id/shotsText"
-        android:layout_toRightOf="@+id/goalsText"
-        android:layout_toEndOf="@+id/goalsText" />
+        android:layout_alignBaseline="@+id/goalsText"
+        android:layout_alignBottom="@+id/goalsText"
+        android:layout_alignLeft="@+id/shotsNumber"
+        android:layout_alignStart="@+id/shotsNumber" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:id="@+id/editGameName"
+        android:enabled="true"
+        android:textAlignment="center"
+        android:text="Game Name"
+        android:inputType="text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Game Timer"
+        android:id="@+id/timerText"
+        android:layout_below="@+id/editGameName"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startTimer"
+        android:text="Start"
+        android:id="@+id/start"
+        android:layout_below="@+id/timerText"
+        android:layout_alignLeft="@+id/decrease"
+        android:layout_alignStart="@+id/decrease"
+        android:layout_alignRight="@+id/increase"
+        android:layout_alignEnd="@+id/increase" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stopTimer"
+        android:text="Stop"
+        android:id="@+id/stop"
+        android:layout_below="@+id/timerText"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/groundBallsNumber"
+        android:layout_alignBaseline="@+id/groundBallsText"
+        android:layout_alignBottom="@+id/groundBallsText"
+        android:layout_alignLeft="@+id/drawControlsNumber"
+        android:layout_alignStart="@+id/drawControlsNumber" />
+
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chronometer"
+        android:textSize = "40sp"
+        android:layout_below="@+id/timerText"
+        android:layout_centerHorizontal="true" />
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chronometer2"
+        android:textSize = "0sp"
+        android:layout_below="@+id/timerText"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

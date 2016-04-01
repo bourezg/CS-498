@@ -11,11 +11,10 @@ import android.widget.TextView;
 import java.util.List;
 
 
-
 public class gameDetailFragment extends Fragment {
-    private gameManager pm = gameManager.getInstance();
-    private List<game> games = pm.getGames();
 
+    gameManager pm = gameManager.getInstance();
+    List<game> games = pm.getGames();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -26,11 +25,12 @@ public class gameDetailFragment extends Fragment {
         game p = games.get(position);
         if (p != null) {
           Activity activity = getActivity();
-            EditText tv = (EditText) activity.findViewById(R.id.editText);
+            EditText tv = (EditText) activity.findViewById(R.id.editGameName);
             tv.setText(p.getGameNumber());
-            //add more changing stuff here
+
         }
     }
+
 
 
 

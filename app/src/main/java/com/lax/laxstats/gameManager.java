@@ -8,7 +8,7 @@ import java.util.Vector;
  */
 public class gameManager {
     private static gameManager pm = null;
-    private List<game> games;
+    private  List<game> games;
 
 
     public static gameManager getInstance() {
@@ -19,21 +19,24 @@ public class gameManager {
     }
 
     public gameManager() {
-        game p0 = new game("0");
-        game p1 = new game("1");
-        game p2 = new game("2");
-        game p3 = new game("3");
-        game p4 = new game("4");
+        game g0 = new game("Game #0");
+        game g1 = new game("Game #1");
+        game g2 = new game("Game #2");
+        game g3 = new game("Game #3");
+        game g4 = new game("Game #4");
+
+        games = new Vector<>();
+        games.add(g0);
+        games.add(g1);
+        games.add(g2);
+        games.add(g3);
+        games.add(g4);
 
 
-        games = new Vector<game>();
-        games.add(p0);
-        games.add(p1);
-        games.add(p2);
-        games.add(p3);
-        games.add(p4);
+    }
 
-
+    public void addAGame(game newGameToAdd){
+        games.add(newGameToAdd);
     }
 
 
