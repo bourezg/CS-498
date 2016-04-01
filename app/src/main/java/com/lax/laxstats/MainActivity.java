@@ -19,7 +19,6 @@ public class MainActivity extends Activity {
     public void onResume(){
         super.onResume();
         //UPDATES TEXTVIEW TO NEW GAME NAME
-        gameListFragment.adapter.notifyDataSetChanged();
 
     }
     

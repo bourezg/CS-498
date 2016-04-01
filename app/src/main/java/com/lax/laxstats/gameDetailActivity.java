@@ -47,7 +47,18 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
             displayName();
         }
     }
+    @Override
+    public void onPause(){
+        super.onPause();
+        gameListFragment.adapter.notifyDataSetChanged();
 
+    }
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        gameListFragment.adapter.notifyDataSetChanged();
+
+    }
     @Override
     public void onClick(View v){
         switch(v.getId()){
@@ -222,6 +233,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
                 }
             });
         }
+        gameListFragment.adapter.notifyDataSetChanged();
     }
 
     private void display(int number,String name) {
