@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Chronometer;
@@ -44,6 +45,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
             updateAll();
             displayName();
         }
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
     @Override
     public void onPause(){
@@ -272,7 +274,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
 
                         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
-
+                        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
                         handled = true;
                     }
                     return handled;
