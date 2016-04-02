@@ -22,6 +22,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
     public Chronometer chronometer;
     public Chronometer chronometer2;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
