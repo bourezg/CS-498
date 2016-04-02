@@ -22,7 +22,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
     public Chronometer chronometer;
     public Chronometer chronometer2;
 
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -285,7 +285,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
         i.setType("text/plain");
         i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
         i.putExtra(Intent.EXTRA_SUBJECT, currGame.toString()+" Stats");
-        i.putExtra(Intent.EXTRA_TEXT   , "In "+currGame.toString()+" the final score was Home: "+currGame.homeScore+" Awway: "+currGame.awayScore+"Player Name"+" had the following stats:\n"+
+        i.putExtra(Intent.EXTRA_TEXT   , "In "+currGame.toString()+" the final score was Home: "+currGame.homeScore+" Away: "+currGame.awayScore+"\nPlayer Name"+" had the following stats:\n"+
                                 "Shots: "+ currGame.shots+"\n"+
                                 "Goals: "+ currGame.goals+"\n"+
                                 "Assists: "+ currGame.assists+"\n"+
