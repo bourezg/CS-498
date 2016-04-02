@@ -19,9 +19,8 @@ import android.widget.Toast;
 
 public class gameDetailActivity extends Activity implements View.OnClickListener {
     game currGame;
-    boolean running = false;
-    private Chronometer chronometer;
-    private Chronometer chronometer2;
+    public Chronometer chronometer;
+    public Chronometer chronometer2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +29,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
 
         chronometer = (Chronometer) findViewById(R.id.chronometer);
         chronometer2 = (Chronometer) findViewById(R.id.chronometer2);
+
 
         findViewById(R.id.start).setOnClickListener(this);
         findViewById(R.id.stop).setOnClickListener(this);
@@ -46,6 +46,40 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
             displayName();
         }
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        if(currGame.C1!=0) {
+            chronometer.setBase(currGame.C1);
+            chronometer2.setBase(currGame.C2);
+
+            if (currGame.running) {
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                currGame.C1 = chronometer.getBase();
+
+                currGame.timer = 0;
+
+            }
+            chronometer2.stop();
+            if (currGame.timeSaved){
+                chronometer.setBase(currGame.timer - chronometer2.getBase() + SystemClock.elapsedRealtime());
+                currGame.C1 = chronometer.getBase();
+            }
+            else {
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                currGame.C1=chronometer.getBase();
+            }
+            chronometer.start();
+            currGame.running = true;
+
+            currGame.timer = chronometer.getBase();
+            currGame.timeSaved = true;
+            currGame.running = false;
+            chronometer.stop();
+            chronometer2.setBase(SystemClock.elapsedRealtime());
+            currGame.C2=chronometer2.getBase();
+            chronometer2.start();
+            currGame.displayTime=SystemClock.elapsedRealtime()-chronometer.getBase();
+        }
+
     }
     @Override
     public void onPause(){
@@ -61,32 +95,41 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
     }
     @Override
     public void onClick(View v){
-        switch(v.getId()){
+        switch(v.getId()) {
             case R.id.start:
-                if (running) {
+                if (currGame.running) {
                     chronometer.setBase(SystemClock.elapsedRealtime());
+                    currGame.C1 = chronometer.getBase();
+
                     currGame.timer = 0;
                     break;
                 }
                 chronometer2.stop();
-                if(currGame.timeSaved)
-                    chronometer.setBase(currGame.timer-chronometer2.getBase()+SystemClock.elapsedRealtime());
-                else
+                if (currGame.timeSaved){
+                    chronometer.setBase(currGame.timer - chronometer2.getBase() + SystemClock.elapsedRealtime());
+                currGame.C1 = chronometer.getBase();
+        }
+                else {
                     chronometer.setBase(SystemClock.elapsedRealtime());
+                    currGame.C1=chronometer.getBase();
+                }
                 chronometer.start();
-                running = true;
+                currGame.running = true;
                 break;
 
             case R.id.stop:
                 currGame.timer = chronometer.getBase();
                 currGame.timeSaved = true;
-                running = false;
+                currGame.running = false;
                 chronometer.stop();
                 chronometer2.setBase(SystemClock.elapsedRealtime());
+                currGame.C2=chronometer2.getBase();
                 chronometer2.start();
+                currGame.displayTime=SystemClock.elapsedRealtime()-chronometer.getBase();
                 break;
         }
     }
+
 
     private void updateAll() {
         display(currGame.fouls, "fouls");
@@ -100,6 +143,8 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
         display(currGame.turnovers, "turnovers");
         display(currGame.awayScore, "awayScore");
         display(currGame.homeScore, "homeScore");
+        if(currGame.running)
+            chronometer.start();
     }
 
 

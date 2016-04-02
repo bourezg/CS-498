@@ -3,7 +3,11 @@ package com.lax.laxstats;
 public class game {
     String gameName;
     boolean timeSaved;
-    long timer;
+    boolean running = false;
+    long timer=0;
+    long displayTime = 0;
+    public long C1 = 0;
+    public long C2 = 0;
     int goals, shots, assists, drawControls, groundBalls, causedTurnovers, fouls, saves, minutesPlayed, turnovers, homeScore, awayScore;
 
     public game(String gameName) {
