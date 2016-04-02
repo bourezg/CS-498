@@ -1,5 +1,6 @@
 package com.lax.laxstats;
 
+import android.content.Intent;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -228,6 +229,21 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
             return;
         currGame.homeScore--;
         display(currGame.homeScore, "homeScore");
+    }
+
+    public void sendEmail(View view){
+
+        Intent i = new Intent(Intent.ACTION_SEND);
+        //i.setType("message/rfc822");
+        i.setType("text/plain");
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
+        i.putExtra(Intent.EXTRA_TEXT   , "body of email");
+        try {
+            startActivity(Intent.createChooser(i, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(gameDetailActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void displayName()

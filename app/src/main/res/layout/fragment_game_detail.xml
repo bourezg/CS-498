@@ -578,5 +578,16 @@
         android:layout_below="@+id/awayScoreTitle"
         android:layout_alignLeft="@+id/increase"
         android:layout_alignStart="@+id/increase" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share Scores"
+        android:id="@+id/button"
+        android:onClick="sendEmail"
+        android:layout_below="@+id/goalsPlusButton"
+        android:layout_alignRight="@+id/goalsPlusButton"
+        android:layout_alignEnd="@+id/goalsPlusButton" />
+
 </RelativeLayout>
 </ScrollView>
