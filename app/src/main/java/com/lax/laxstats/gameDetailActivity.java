@@ -234,11 +234,19 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
     public void sendEmail(View view){
 
         Intent i = new Intent(Intent.ACTION_SEND);
-        //i.setType("message/rfc822");
         i.setType("text/plain");
-        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-        i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-        i.putExtra(Intent.EXTRA_TEXT   , "body of email");
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT, currGame.toString()+" Stats");
+        i.putExtra(Intent.EXTRA_TEXT   , "In "+currGame.toString()+" the final score was Home: "+currGame.homeScore+" Awway: "+currGame.awayScore+"Player Name"+" had the following stats:\n"+
+                                "Shots: "+ currGame.shots+"\n"+
+                                "Goals: "+ currGame.goals+"\n"+
+                                "Assists: "+ currGame.assists+"\n"+
+                                "Ground Balls: "+ currGame.groundBalls+"\n"+
+                                "Draw Control: "+ currGame.drawControls+"\n"+
+                                "Fouls: "+ currGame.fouls+"\n"+
+                                "Turnovers: "+ currGame.turnovers+"\n"+
+                                "Caused Turnovers: "+ currGame.causedTurnovers+"\n"+
+                                "Minutes Played: "+ currGame.minutesPlayed+"\n");
         try {
             startActivity(Intent.createChooser(i, "Send mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
