@@ -1,11 +1,10 @@
 package com.lax.laxstats;
 
 public class game {
-     String gameName;
+    String gameName;
     boolean timeSaved;
-     long timer;
-     int goals,shots,assists,drawControls,
-            groundBalls,causedTurnovers,fouls,saves,minutesPlayed,turnovers;
+    long timer;
+    int goals, shots, assists, drawControls, groundBalls, causedTurnovers, fouls, saves, minutesPlayed, turnovers, homeScore, awayScore;
 
     public game(String gameName) {
         this.gameName = gameName;
@@ -18,12 +17,20 @@ public class game {
         this.groundBalls = 0;
         this.causedTurnovers = 0;
         this.fouls = 0;
-        this.saves= 0;
+        this.saves = 0;
         this.minutesPlayed = 0;
-        this.turnovers =0;
+        this.turnovers = 0;
+        this.homeScore = 0;
+        this.awayScore = 0;
     }
-    public String toString(){return gameName;}
-    public String getGameNumber(){return gameName;}
+
+    public String toString() {
+        return gameName;
+    }
+
+    public String getGameNumber() {
+        return gameName;
+    }
 
 
 }

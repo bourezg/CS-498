@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -8,7 +11,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.lax.laxstats.MainActivity">
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,6 +41,7 @@
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:layout_below="@+id/stop"
         android:layout_alignTop="@+id/turnoversText"
         android:layout_alignLeft="@+id/turnoversNumber"
         android:layout_alignStart="@+id/turnoversNumber" />
@@ -142,8 +145,8 @@
         android:paddingBottom="15dp"
         android:text="Minutes Played: "
         android:id="@+id/turnoversText"
-        android:layout_marginTop="72dp"
-        android:layout_below="@+id/editGameName"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/stop"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -422,6 +425,55 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+   <!--<Button
+       android:id="@+id/homeScorePlusButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:onClick="increaseHomeScore"
+       android:text="+"
+       android:layout_below="@+id/editGameName"
+       android:layout_alignRight="@+id/groundBallsText"
+       android:layout_alignEnd="@+id/groundBallsText" />
+    -->
+    <TextView
+        android:id="@+id/homeScoreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HOME"
+        android:textSize="20sp"
+        android:layout_below="@+id/editGameName"
+        android:layout_toRightOf="@+id/homeDec"
+        android:layout_toEndOf="@+id/homeDec" />
+
+    <TextView
+        android:id="@+id/homeScoreNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="40sp"
+        android:layout_alignBottom="@+id/homeDec"
+        android:layout_toRightOf="@+id/shotsText"
+        android:layout_toEndOf="@+id/shotsText" />
+    <TextView
+        android:id="@+id/awayScoreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AWAY"
+        android:textSize="20sp"
+        android:layout_below="@+id/editGameName"
+        android:layout_alignLeft="@+id/start"
+        android:layout_alignStart="@+id/start" />
+    <TextView
+        android:id="@+id/awayScoreNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="40sp"
+        android:editable="false"
+        android:gravity="center"
+        android:layout_below="@+id/awayScoreTitle"
+        android:layout_alignRight="@+id/decrease"
+        android:layout_alignEnd="@+id/decrease" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -429,7 +481,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Game Timer"
         android:id="@+id/timerText"
-        android:layout_below="@+id/editGameName"
+        android:layout_below="@+id/awayScoreNumber"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -483,5 +535,48 @@
         android:layout_below="@+id/timerText"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:onClick="increaseHomeScore"
+        android:id="@+id/homeInc"
+        android:layout_alignTop="@+id/homeScoreNumber"
+        android:layout_toRightOf="@+id/stop"
+        android:layout_toEndOf="@+id/stop" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/homeDec"
+        android:onClick="decreaseHomeScore"
+        android:layout_below="@+id/homeScoreTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/awayDec"
+        android:onClick="decreaseAwayScore"
+        android:layout_alignTop="@+id/homeInc"
+        android:layout_alignLeft="@+id/MinutesPlayedNumber"
+        android:layout_alignStart="@+id/MinutesPlayedNumber" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/awayInc"
+        android:onClick="increaseAwayScore"
+        android:layout_below="@+id/awayScoreTitle"
+        android:layout_alignLeft="@+id/increase"
+        android:layout_alignStart="@+id/increase" />
 </RelativeLayout>
+</ScrollView>

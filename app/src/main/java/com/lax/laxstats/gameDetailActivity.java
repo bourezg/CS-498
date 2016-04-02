@@ -14,12 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Calendar;
-import java.util.List;
-
 
 public class gameDetailActivity extends Activity implements View.OnClickListener {
-    game p;
+    game currGame;
     boolean running = false;
     private Chronometer chronometer;
     private Chronometer chronometer2;
@@ -42,7 +39,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
             int position = 0;
             position = getIntent().getIntExtra("POSITION",0);
             fragment.loadPosition(position);    
-            p = fragment.games.get(position);
+            currGame = fragment.games.get(position);
             updateAll();
             displayName();
         }
@@ -65,12 +62,12 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
             case R.id.start:
                 if (running) {
                     chronometer.setBase(SystemClock.elapsedRealtime());
-                    p.timer = 0;
+                    currGame.timer = 0;
                     break;
                 }
                 chronometer2.stop();
-                if(p.timeSaved)
-                    chronometer.setBase(p.timer-chronometer2.getBase()+SystemClock.elapsedRealtime());
+                if(currGame.timeSaved)
+                    chronometer.setBase(currGame.timer-chronometer2.getBase()+SystemClock.elapsedRealtime());
                 else
                     chronometer.setBase(SystemClock.elapsedRealtime());
                 chronometer.start();
@@ -78,8 +75,8 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
                 break;
 
             case R.id.stop:
-                p.timer = chronometer.getBase();
-                p.timeSaved = true;
+                currGame.timer = chronometer.getBase();
+                currGame.timeSaved = true;
                 running = false;
                 chronometer.stop();
                 chronometer2.setBase(SystemClock.elapsedRealtime());
@@ -89,124 +86,149 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
     }
 
     private void updateAll() {
-        display(p.fouls, "fouls");
-        display(p.assists, "assists");
-        display(p.drawControls, "drawControlls");
-        display(p.groundBalls,"groundBalls");
-        display(p.shots,"shots");
-        display(p.goals,"goals");
-        display(p.causedTurnovers,"causedTurnovers");
-        display(p.minutesPlayed,"minutesPlayed");
-        display(p.turnovers, "turnovers");
+        display(currGame.fouls, "fouls");
+        display(currGame.assists, "assists");
+        display(currGame.drawControls, "drawControlls");
+        display(currGame.groundBalls,"groundBalls");
+        display(currGame.shots,"shots");
+        display(currGame.goals,"goals");
+        display(currGame.causedTurnovers,"causedTurnovers");
+        display(currGame.minutesPlayed,"minutesPlayed");
+        display(currGame.turnovers, "turnovers");
+        display(currGame.awayScore, "awayScore");
+        display(currGame.homeScore, "homeScore");
     }
 
 
     public void increaseTurnovers(View view) {
-        p.turnovers++;
-        display(p.turnovers, "turnovers");
+        currGame.turnovers++;
+        display(currGame.turnovers, "turnovers");
 
     }
     public void decreaseTurnovers(View view) {
-        if(p.turnovers  == 0)
+        if(currGame.turnovers  == 0)
             return;
-        p.turnovers--;
-        display(p.turnovers,"turnovers");
+        currGame.turnovers--;
+        display(currGame.turnovers,"turnovers");
     }
     public void increaseMinutesPlayed(View view) {
-        p.minutesPlayed++;
-        display(p.minutesPlayed,"minutesPlayed");
+        currGame.minutesPlayed++;
+        display(currGame.minutesPlayed,"minutesPlayed");
 
     }
     public void decreaseMinutesPlayed(View view) {
-        if(p.minutesPlayed  == 0)
+        if(currGame.minutesPlayed  == 0)
             return;
-        p.minutesPlayed--;
-        display(p.minutesPlayed,"minutesPlayed");
+        currGame.minutesPlayed--;
+        display(currGame.minutesPlayed,"minutesPlayed");
     }
     public void increaseCausedTurnovers(View view) {
-        p.causedTurnovers++;
-        display(p.causedTurnovers,"causedTurnovers");
+        currGame.causedTurnovers++;
+        display(currGame.causedTurnovers,"causedTurnovers");
 
     }
     public void decreaseCausedTurnovers(View view) {
-        if(p.causedTurnovers  == 0)
+        if(currGame.causedTurnovers  == 0)
             return;
-        p.causedTurnovers--;
-        display(p.causedTurnovers,"causedTurnovers");
+        currGame.causedTurnovers--;
+        display(currGame.causedTurnovers,"causedTurnovers");
     }
     public void increaseFouls(View view) {
-        p.fouls++;
-        display(p.fouls,"fouls");
+        currGame.fouls++;
+        display(currGame.fouls,"fouls");
 
     }
     public void decreaseFouls(View view) {
-        if(p.fouls  == 0)
+        if(currGame.fouls  == 0)
             return;
-        p.fouls--;
-        display(p.fouls,"fouls");
+        currGame.fouls--;
+        display(currGame.fouls,"fouls");
     }
     public void increaseAssists(View view) {
-        p.assists++;
-        display(p.assists,"assists");
+        currGame.assists++;
+        display(currGame.assists,"assists");
 
     }
     public void decreaseAssists(View view) {
-        if(p.assists  == 0)
+        if(currGame.assists  == 0)
             return;
-        p.assists--;
-        display(p.assists,"assists");
+        currGame.assists--;
+        display(currGame.assists,"assists");
     }
     public void increaseDrawControls(View view) {
-        p.drawControls++;
-        display(p.drawControls,"drawControls");
+        currGame.drawControls++;
+        display(currGame.drawControls,"drawControls");
 
     }
     public void decreaseDrawControls(View view) {
-        if(p.drawControls  == 0)
+        if(currGame.drawControls  == 0)
             return;
-        p.drawControls--;
-        display(p.drawControls,"drawControls");
+        currGame.drawControls--;
+        display(currGame.drawControls,"drawControls");
     }
     public void increaseGroundBalls(View view) {
-        p.groundBalls++;
-        display(p.groundBalls,"groundBalls");
+        currGame.groundBalls++;
+        display(currGame.groundBalls,"groundBalls");
 
     }
     public void decreaseGroundBalls(View view) {
-        if(p.groundBalls  == 0)
+        if(currGame.groundBalls  == 0)
             return;
-        p.groundBalls--;
-        display(p.groundBalls,"groundBalls");
+        currGame.groundBalls--;
+        display(currGame.groundBalls,"groundBalls");
     }
     public void increaseShots(View view) {
-        p.shots++;
-        display(p.shots,"shots");
+        currGame.shots++;
+        display(currGame.shots,"shots");
 
     }
     public void decreaseShots(View view) {
-        if(p.shots  == 0)
+        if(currGame.shots  == 0)
             return;
-        p.shots--;
-        display(p.shots,"shots");
+        currGame.shots--;
+        display(currGame.shots,"shots");
     }
     public void increaseGoals(View view) {
-        p.goals++;
-        p.shots++;
-        display(p.goals,"goals");
-        display(p.shots,"shots");
+        currGame.goals++;
+        currGame.shots++;
+        currGame.homeScore++;
+        display(currGame.goals,"goals");
+        display(currGame.shots,"shots");
+        display(currGame.homeScore, "homeScore");
 
     }
     public void decreaseGoals(View view) {
-        if(p.goals  == 0)
+        if(currGame.goals  == 0)
             return;
-        p.goals--;
-        p.shots--;
+        currGame.goals--;
+        currGame.shots--;
+        currGame.homeScore--;
 
-        display(p.goals,"goals");
-        display(p.shots,"shots");
-
+        display(currGame.goals,"goals");
+        display(currGame.shots,"shots");
+        display(currGame.homeScore, "homeScore");
     }
 
+    public void increaseAwayScore(View view){
+        currGame.awayScore++;
+        display(currGame.awayScore, "awayScore");
+    }
+    public void decreaseAwayScore(View view){
+        if(currGame.awayScore  == 0)
+            return;
+        currGame.awayScore--;
+        display(currGame.awayScore, "awayScore");
+    }
+    public void increaseHomeScore(View view){
+        currGame.homeScore++;
+        display(currGame.homeScore, "homeScore");
+    }
+    public void decreaseHomeScore(View view){
+        if(currGame.homeScore  == 0)
+            return;
+        currGame.homeScore--;
+        display(currGame.homeScore, "homeScore");
+    }
 
     private void displayName()
     {
@@ -221,7 +243,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
                     if(i == EditorInfo.IME_ACTION_DONE)
                     {
                         String inputText = textView.getText().toString();
-                        p.gameName = inputText;
+                        currGame.gameName = inputText;
                         Toast.makeText(gameDetailActivity.this,"Changed the game name to: "+ inputText, Toast.LENGTH_SHORT).show();
 
                         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -278,7 +300,14 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
                     TextView displayGoals = (TextView) findViewById(R.id.goalsNumber);
                     displayGoals.setText("" + number);
                     break;
-
+                case "awayScore":
+                    TextView displayAwayScore = (TextView) findViewById(R.id.awayScoreNumber);
+                    displayAwayScore.setText("" + number);
+                    break;
+                case "homeScore":
+                    TextView displayHomeScore = (TextView) findViewById(R.id.homeScoreNumber);
+                    displayHomeScore.setText("" + number);
+                    break;
             }
         }
     }
