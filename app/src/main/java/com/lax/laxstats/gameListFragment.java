@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import java.util.List;
 
 
@@ -40,8 +43,7 @@ public class gameListFragment extends Fragment implements AdapterView.OnItemClic
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         // Pass to the main activity
-        ((MainActivity)getActivity()).onItemClick(position);
+        ((MainActivity) getActivity()).onItemClick(position);
     }
-
 
 }

@@ -38,6 +38,10 @@ public class MainActivity extends Activity {
         game newGame = new game("New Game");
         gameListFragment.pm.addAGame(newGame);
         gameListFragment.adapter.notifyDataSetChanged();
+        if(gameListFragment.pm.getGames().size()==1){
+            TextView btn = (TextView) findViewById(R.id.noGamesHint);
+            btn.setVisibility(View.GONE);}
     }
+
 
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:id="@+id/activity_game_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,6 +9,17 @@
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
     android:paddingBottom="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hit (+) to add a game"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:id="@+id/noGamesHint"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible"/>
+    />
 
     <fragment android:name="com.lax.laxstats.gameListFragment"
         android:id="@+id/fragment_game_list"
@@ -25,5 +38,7 @@
         android:onClick="createNewGame"
         android:textColor="#fff"
         android:layout_gravity="top|right" />
+
+
 
 </LinearLayout>

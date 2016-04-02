@@ -1,5 +1,8 @@
 package com.lax.laxstats;
 
+import android.view.View;
+import android.widget.Button;
+
 import java.util.List;
 import java.util.Vector;
 
@@ -19,18 +22,18 @@ public class gameManager {
     }
 
     public gameManager() {
-        game g0 = new game("Game #0");
-        game g1 = new game("Game #1");
-        game g2 = new game("Game #2");
-        game g3 = new game("Game #3");
-        game g4 = new game("Game #4");
+        //game g0 = new game("Game #0");
+        //game g1 = new game("Game #1");
+        //game g2 = new game("Game #2");
+        //game g3 = new game("Game #3");
+        //game g4 = new game("Game #4");
 
         games = new Vector<>();
-        games.add(g0);
-        games.add(g1);
-        games.add(g2);
-        games.add(g3);
-        games.add(g4);
+        //games.add(g0);
+        //games.add(g1);
+        //games.add(g2);
+        //games.add(g3);
+        //games.add(g4);
 
 
     }
