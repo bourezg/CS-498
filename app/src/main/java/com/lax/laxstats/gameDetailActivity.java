@@ -48,38 +48,41 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
         }
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-        if(currGame.C1!=0) {
+        if(currGame.timeSaved) {
             chronometer.setBase(currGame.C1);
             chronometer2.setBase(currGame.C2);
 
-            if (currGame.running) {
-                chronometer.setBase(SystemClock.elapsedRealtime());
-                currGame.C1 = chronometer.getBase();
+            if(!currGame.running)
+            {
+                if (currGame.running) {
+                    chronometer.setBase(SystemClock.elapsedRealtime());
+                    currGame.C1 = chronometer.getBase();
 
-                currGame.timer = 0;
+                    currGame.timer = 0;
+                }
+                chronometer2.stop();
+                if (currGame.timeSaved){
+                    chronometer.setBase(currGame.timer - chronometer2.getBase() + SystemClock.elapsedRealtime());
+                    currGame.C1 = chronometer.getBase();
+                }
+                else {
+                    chronometer.setBase(SystemClock.elapsedRealtime());
+                    currGame.C1=chronometer.getBase();
+                }
+                chronometer.start();
+                currGame.running = true;
+
+                    currGame.timer = chronometer.getBase();
+                    currGame.timeSaved = true;
+                    currGame.running = false;
+                    chronometer.stop();
+                    chronometer2.setBase(SystemClock.elapsedRealtime());
+                    currGame.C2=chronometer2.getBase();
+                    chronometer2.start();
+                    currGame.displayTime=SystemClock.elapsedRealtime()-chronometer.getBase();
 
             }
-            chronometer2.stop();
-            if (currGame.timeSaved){
-                chronometer.setBase(currGame.timer - chronometer2.getBase() + SystemClock.elapsedRealtime());
-                currGame.C1 = chronometer.getBase();
             }
-            else {
-                chronometer.setBase(SystemClock.elapsedRealtime());
-                currGame.C1=chronometer.getBase();
-            }
-            chronometer.start();
-            currGame.running = true;
-
-            currGame.timer = chronometer.getBase();
-            currGame.timeSaved = true;
-            currGame.running = false;
-            chronometer.stop();
-            chronometer2.setBase(SystemClock.elapsedRealtime());
-            currGame.C2=chronometer2.getBase();
-            chronometer2.start();
-            currGame.displayTime=SystemClock.elapsedRealtime()-chronometer.getBase();
-        }
 
     }
     @Override
