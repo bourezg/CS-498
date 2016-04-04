@@ -25,10 +25,36 @@ public class gameDetailFragment extends Fragment {
         game p = games.get(position);
         if (p != null) {
           Activity activity = getActivity();
-            EditText tv = (EditText) activity.findViewById(R.id.editGameName);
-            tv.setText(p.getGameNumber());
+            EditText ev = (EditText) activity.findViewById(R.id.editGameName);
+            ev.setText(p.getGameNumber());}
+            /*
+            TextView tv = (TextView) activity.findViewById(R.id.goalsNumber);
+            tv.setText(p.goals);
+            tv = (TextView) activity.findViewById(R.id.homeScoreNumber);
+            tv.setText(p.homeScore);
+            tv = (TextView) activity.findViewById(R.id.goalsNumber);
+            tv.setText(p.goals);
+            tv = (TextView) activity.findViewById(R.id.homeScoreNumber);
+            tv.setText(p.homeScore);
+            tv = (TextView) activity.findViewById(R.id.shotsNumber);
+            tv.setText(p.shots);
+            tv = (TextView) activity.findViewById(R.id.assistsNumber);
+            tv.setText(p.homeScore);
+            tv = (TextView) activity.findViewById(R.id.drawControlsNumber);
+            tv.setText(p.homeScore);
+            tv = (TextView) activity.findViewById(R.id.groundBallsNumber);
+            tv.setText(p.homeScore);
+            tv = (TextView) activity.findViewById(R.id.causedTurnoversNumber);
+            tv.setText(p.causedTurnovers);
+            tv = (TextView) activity.findViewById(R.id.foulsNumber);
+            tv.setText(p.fouls);
+            tv = (TextView) activity.findViewById(R.id.MinutesPlayedNumber);
+            tv.setText(p.minutesPlayed);
+            tv = (TextView) activity.findViewById(R.id.turnoversNumber);
+            tv.setText(p.turnovers);
+            tv = (TextView) activity.findViewById(R.id.awayScoreNumber);
+            tv.setText(p.awayScore);}*/
 
-        }
     }
 
 

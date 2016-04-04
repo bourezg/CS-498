@@ -59,28 +59,15 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
                     currGame.C1 = chronometer.getBase();
 
                     currGame.timer = 0;
-                }
-                chronometer2.stop();
-                if (currGame.timeSaved){
-                    chronometer.setBase(currGame.timer - chronometer2.getBase() + SystemClock.elapsedRealtime());
-                    currGame.C1 = chronometer.getBase();
-                }
-                else {
-                    chronometer.setBase(SystemClock.elapsedRealtime());
-                    currGame.C1=chronometer.getBase();
-                }
-                chronometer.start();
-                currGame.running = true;
-
                     currGame.timer = chronometer.getBase();
                     currGame.timeSaved = true;
                     currGame.running = false;
                     chronometer.stop();
                     chronometer2.setBase(SystemClock.elapsedRealtime());
-                    currGame.C2=chronometer2.getBase();
+                    currGame.C2 = chronometer2.getBase();
                     chronometer2.start();
-                    currGame.displayTime=SystemClock.elapsedRealtime()-chronometer.getBase();
-
+                    currGame.displayTime = SystemClock.elapsedRealtime() - chronometer.getBase();
+                }
             }
             }
 
@@ -143,7 +130,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
         display(currGame.shots,"shots");
         display(currGame.goals,"goals");
         display(currGame.causedTurnovers,"causedTurnovers");
-        display(currGame.minutesPlayed,"minutesPlayed");
+        display(currGame.minutesPlayed, "minutesPlayed");
         display(currGame.turnovers, "turnovers");
         display(currGame.awayScore, "awayScore");
         display(currGame.homeScore, "homeScore");

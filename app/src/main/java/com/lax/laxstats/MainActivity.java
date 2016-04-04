@@ -1,5 +1,6 @@
 package com.lax.laxstats;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,7 +14,15 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+        if(gameListFragment.pm.getGames().size()>0) {
+            TextView btn = (TextView) findViewById(R.id.noGamesHint);
+            if (btn != null)
+                btn.setVisibility(View.GONE);
+        }
     }
+
 
     @Override
     public void onResume(){
@@ -29,6 +38,12 @@ public class MainActivity extends Activity {
             intent.putExtra("POSITION", position);
             startActivity(intent);
 
+        }else {
+            //Running in large screen mode.
+            gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
+            if (fragment != null) {
+                fragment.loadPosition(position);
+            }
         }
 
 
