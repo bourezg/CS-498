@@ -4,13 +4,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
     Intent intent;
     int savedPosition;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,12 +23,26 @@ public class MainActivity extends Activity {
             if (btn != null)
                 btn.setVisibility(View.GONE);
         }
-        gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
-        if (fragment != null) {
-            fragment.loadPosition(0);
+        else
+            return;
+        if (getResources().getConfiguration().orientation == 2) {
+            gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
+            if (fragment != null) {
+                fragment.loadPosition(0);
+            }
         }
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        if (getResources().getConfiguration().orientation == 2) {
+            gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
+            if (fragment != null) {
+                fragment.loadPosition(0);
+            }
+        }
+    }
 
 
 
