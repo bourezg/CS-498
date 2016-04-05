@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
     int savedPosition;
     static String playerName = "";
     static String playerNumber = "";
+    static int playerPosition = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

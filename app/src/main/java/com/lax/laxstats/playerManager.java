@@ -29,6 +29,7 @@ public class playerManager extends Activity implements OnItemSelectedListener{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        spinner.setSelection(MainActivity.playerPosition);
         //Display current settings
         EditText tv = (EditText) findViewById(R.id.editPlayerName);
         tv.setText(MainActivity.playerName);
@@ -39,6 +40,7 @@ public class playerManager extends Activity implements OnItemSelectedListener{
         displayName();
     }
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        MainActivity.playerPosition = pos;
         parent.getItemAtPosition(pos);
     }
 
@@ -55,8 +57,8 @@ public class playerManager extends Activity implements OnItemSelectedListener{
                     boolean handled = false;
                     if(i == EditorInfo.IME_ACTION_DONE)
                     {
-                        String inputText = textView.getText().toString();
-                        MainActivity.playerName = inputText;
+
+                        MainActivity.playerName = textView.getText().toString();
 
                         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
@@ -76,8 +78,7 @@ public class playerManager extends Activity implements OnItemSelectedListener{
                 boolean handled = false;
                 if(i == EditorInfo.IME_ACTION_DONE)
                 {
-                    String inputText = textView.getText().toString();
-                    MainActivity.playerNumber = inputText;
+                    MainActivity.playerNumber = textView.getText().toString();
 
                     InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
