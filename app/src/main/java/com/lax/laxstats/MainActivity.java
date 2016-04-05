@@ -17,6 +17,10 @@ public class MainActivity extends Activity {
             if (btn != null)
                 btn.setVisibility(View.GONE);
         }
+        gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
+        if (fragment != null) {
+            fragment.loadPosition(0);
+        }
     }
 
 
