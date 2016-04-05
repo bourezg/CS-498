@@ -1,13 +1,16 @@
 package com.lax.laxstats;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
     Intent intent;
+    int savedPosition;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,29 +27,29 @@ public class MainActivity extends Activity {
     }
 
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        //UPDATES TEXTVIEW TO NEW GAME NAME
 
-    }
-    
 
     public void onItemClick(int position) {
         if (findViewById(R.id.activity_game_list) != null) {
             intent = new Intent(this, gameDetailActivity.class);
             intent.putExtra("POSITION", position);
             startActivity(intent);
+            savedPosition = position;
 
-        }else {
-            //Running in large screen mode.
+        }
+        else {
             gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
             if (fragment != null) {
                 fragment.loadPosition(position);
             }
         }
 
+    }
 
+    public void enterEditGame(View view){
+        intent = new Intent(this, gameDetailActivity.class);
+        intent.putExtra("POSITION", savedPosition);
+        startActivity(intent);
     }
 
     public void createNewGame(View view){
