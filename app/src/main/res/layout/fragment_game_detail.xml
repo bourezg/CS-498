@@ -589,5 +589,14 @@
         android:layout_alignRight="@+id/goalsPlusButton"
         android:layout_alignEnd="@+id/goalsPlusButton" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Player Info"
+        android:id="@+id/player_button"
+        android:onClick="playerButtonClick"
+        android:layout_below="@+id/goalsText"
+        android:layout_alignLeft="@+id/goalsText" />
+
 </RelativeLayout>
 </ScrollView>

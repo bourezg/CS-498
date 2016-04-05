@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Lax Stats</string>
+    <string-array name="positions_array">
+        <item>Attack</item>
+        <item>Center</item>
+        <item>Defense</item>
+        <item>Goalie</item>
+        <item>Midfield</item>
+    </string-array>
 </resources>

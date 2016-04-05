@@ -1,6 +1,5 @@
 package com.lax.laxstats;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,9 +12,6 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
         if(gameListFragment.pm.getGames().size()>0) {
             TextView btn = (TextView) findViewById(R.id.noGamesHint);
             if (btn != null)
@@ -57,6 +53,4 @@ public class MainActivity extends Activity {
             TextView btn = (TextView) findViewById(R.id.noGamesHint);
             btn.setVisibility(View.GONE);}
     }
-
-
 }

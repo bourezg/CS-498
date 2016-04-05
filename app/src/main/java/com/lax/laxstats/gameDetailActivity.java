@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,13 +22,15 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
     game currGame;
     public Chronometer chronometer;
     public Chronometer chronometer2;
+    Button playerButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_detail);
-
+        playerButton = (Button) findViewById(R.id.player_button);
+        playerButton.setOnClickListener(this);
         chronometer = (Chronometer) findViewById(R.id.chronometer);
         chronometer2 = (Chronometer) findViewById(R.id.chronometer2);
 
@@ -118,9 +121,15 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
                 chronometer2.start();
                 currGame.displayTime=SystemClock.elapsedRealtime()-chronometer.getBase();
                 break;
+            case R.id.player_button:
+                playerButtonClick();
+                break;
         }
     }
-
+    private void playerButtonClick() {
+        Intent intent = new Intent(this, playerManager.class);
+        startActivity(intent);
+    }
 
     private void updateAll() {
         display(currGame.fouls, "fouls");
