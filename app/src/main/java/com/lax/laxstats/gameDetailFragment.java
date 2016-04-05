@@ -49,6 +49,7 @@ public class gameDetailFragment extends Fragment {
             tv.setText(""+p.turnovers);
             tv = (TextView) activity.findViewById(R.id.awayScoreNumber);
             tv.setText(""+p.awayScore);}
+        
 
     }
 }
