@@ -13,6 +13,8 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
     Intent intent;
     int savedPosition;
+    static String playerName = "";
+    static String playerNumber = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,7 @@ public class MainActivity extends Activity {
             if (fragment != null) {
                 fragment.loadPosition(position);
             }
+
         }
 
     }

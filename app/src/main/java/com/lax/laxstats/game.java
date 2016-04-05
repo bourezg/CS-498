@@ -8,7 +8,7 @@ public class game {
     long displayTime = 0;
     public long C1 = 0;
     public long C2 = 0;
-    public int goals=0, shots, assists, drawControls, groundBalls, causedTurnovers, fouls, saves, minutesPlayed, turnovers, homeScore, awayScore;
+    public int goals, shots, assists, drawControls, groundBalls, causedTurnovers, fouls, saves, minutesPlayed, turnovers, homeScore, awayScore;
 
     public game(String gameName) {
         this.gameName = gameName;

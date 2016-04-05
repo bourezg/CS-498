@@ -442,8 +442,8 @@
         android:text="HOME"
         android:textSize="20sp"
         android:layout_below="@+id/editGameName"
-        android:layout_toRightOf="@+id/homeDec"
-        android:layout_toEndOf="@+id/homeDec" />
+        android:layout_alignRight="@+id/stop"
+        android:layout_alignEnd="@+id/stop" />
 
     <TextView
         android:id="@+id/homeScoreNumber"
@@ -452,15 +452,16 @@
         android:text="0"
         android:textSize="40sp"
         android:layout_alignBottom="@+id/homeDec"
-        android:layout_toRightOf="@+id/shotsText"
-        android:layout_toEndOf="@+id/shotsText" />
+        android:layout_toLeftOf="@+id/homeInc"
+        android:layout_toRightOf="@+id/foulsText"
+        android:layout_toEndOf="@+id/foulsText" />
     <TextView
         android:id="@+id/awayScoreTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AWAY"
         android:textSize="20sp"
-        android:layout_below="@+id/editGameName"
+        android:layout_above="@+id/awayScoreNumber"
         android:layout_alignLeft="@+id/start"
         android:layout_alignStart="@+id/start" />
     <TextView
@@ -471,9 +472,11 @@
         android:textSize="40sp"
         android:editable="false"
         android:gravity="center"
-        android:layout_below="@+id/awayScoreTitle"
+        android:layout_alignBottom="@+id/awayDec"
         android:layout_alignRight="@+id/decrease"
-        android:layout_alignEnd="@+id/decrease" />
+        android:layout_alignEnd="@+id/decrease"
+        android:layout_toRightOf="@+id/awayDec"
+        android:layout_toEndOf="@+id/awayDec" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -543,8 +546,8 @@
         android:onClick="increaseHomeScore"
         android:id="@+id/homeInc"
         android:layout_alignTop="@+id/homeScoreNumber"
-        android:layout_toRightOf="@+id/stop"
-        android:layout_toEndOf="@+id/stop" />
+        android:layout_alignRight="@+id/drawControlsText"
+        android:layout_alignEnd="@+id/drawControlsText" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -554,8 +557,8 @@
         android:id="@+id/homeDec"
         android:onClick="decreaseHomeScore"
         android:layout_below="@+id/homeScoreTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toLeftOf="@+id/homeScoreTitle"
+        android:layout_toStartOf="@+id/homeScoreTitle" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -575,9 +578,9 @@
         android:text="+"
         android:id="@+id/awayInc"
         android:onClick="increaseAwayScore"
-        android:layout_below="@+id/awayScoreTitle"
-        android:layout_alignLeft="@+id/increase"
-        android:layout_alignStart="@+id/increase" />
+        android:layout_alignTop="@+id/awayScoreNumber"
+        android:layout_toEndOf="@+id/awayScoreTitle"
+        android:layout_toRightOf="@+id/awayScoreTitle" />
 
     <Button
         android:layout_width="wrap_content"

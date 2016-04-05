@@ -7,9 +7,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:imeOptions="actionDone"
+        android:hint="Name"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/editPlayerName"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp" />
 
@@ -18,8 +19,8 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText3"
-        android:text="Number"
+        android:hint="Number"
+        android:id="@+id/editPlayerNumber"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp" />
 
@@ -31,7 +32,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Position:"
+            android:hint="Position:"
             android:id="@+id/textView2"
             android:layout_marginTop="0dp"
             android:textSize="20dp" />

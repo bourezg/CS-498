@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 
 public class gameDetailActivity extends Activity implements View.OnClickListener {
-    game currGame;
+    static game currGame;
     public Chronometer chronometer;
     public Chronometer chronometer2;
     Button playerButton;
@@ -87,6 +87,7 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
         gameListFragment.adapter.notifyDataSetChanged();
 
     }
+
     @Override
     public void onClick(View v){
         switch(v.getId()) {
