@@ -29,10 +29,12 @@ public class playerManager extends Activity implements OnItemSelectedListener{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        //Display current settings
         EditText tv = (EditText) findViewById(R.id.editPlayerName);
         tv.setText(MainActivity.playerName);
         EditText et = (EditText) findViewById(R.id.editPlayerNumber);
         et.setText(MainActivity.playerNumber);
+        //Update with newest values
         displayNumber();
         displayName();
     }

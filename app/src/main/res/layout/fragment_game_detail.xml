@@ -452,7 +452,6 @@
         android:text="0"
         android:textSize="40sp"
         android:layout_alignBottom="@+id/homeDec"
-        android:layout_toLeftOf="@+id/homeInc"
         android:layout_toRightOf="@+id/foulsText"
         android:layout_toEndOf="@+id/foulsText" />
     <TextView
@@ -472,11 +471,10 @@
         android:textSize="40sp"
         android:editable="false"
         android:gravity="center"
-        android:layout_alignBottom="@+id/awayDec"
-        android:layout_alignRight="@+id/decrease"
-        android:layout_alignEnd="@+id/decrease"
+        android:layout_alignTop="@+id/awayDec"
         android:layout_toRightOf="@+id/awayDec"
-        android:layout_toEndOf="@+id/awayDec" />
+        android:layout_alignRight="@+id/decrease"
+        android:layout_alignEnd="@+id/decrease" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -546,8 +544,8 @@
         android:onClick="increaseHomeScore"
         android:id="@+id/homeInc"
         android:layout_alignTop="@+id/homeScoreNumber"
-        android:layout_alignRight="@+id/drawControlsText"
-        android:layout_alignEnd="@+id/drawControlsText" />
+        android:layout_toRightOf="@+id/homeScoreTitle"
+        android:layout_toEndOf="@+id/homeScoreTitle" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -557,8 +555,8 @@
         android:id="@+id/homeDec"
         android:onClick="decreaseHomeScore"
         android:layout_below="@+id/homeScoreTitle"
-        android:layout_toLeftOf="@+id/homeScoreTitle"
-        android:layout_toStartOf="@+id/homeScoreTitle" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -579,8 +577,8 @@
         android:id="@+id/awayInc"
         android:onClick="increaseAwayScore"
         android:layout_alignTop="@+id/awayScoreNumber"
-        android:layout_toEndOf="@+id/awayScoreTitle"
-        android:layout_toRightOf="@+id/awayScoreTitle" />
+        android:layout_toRightOf="@+id/awayScoreTitle"
+        android:layout_toEndOf="@+id/awayScoreTitle" />
 
     <Button
         android:layout_width="wrap_content"
