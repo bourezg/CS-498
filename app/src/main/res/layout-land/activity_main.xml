@@ -4,6 +4,15 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hit (+) to add a game"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:id="@+id/noGamesHintLand"
+        android:layout_centerHorizontal="true"
+        />
 
     <fragment android:name="com.lax.laxstats.gameListFragment"
         android:id="@+id/fragment_game_list"
@@ -26,7 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/button2" />
+        android:id="@+id/editButton" />
 
     <Button
         android:id="@+id/editGame"
@@ -34,9 +43,11 @@
         android:layout_height="50dp"
         android:onClick="enterEditGame"
         android:text="Edit..."
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:visibility="invisible"
+        android:layout_alignBaseline="@+id/assistsText"
+        android:layout_alignBottom="@+id/assistsText"
+        android:layout_alignRight="@+id/noGamesHintLand"
+        android:layout_alignEnd="@+id/noGamesHintLand" />
         
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +58,8 @@
         android:textSize="50sp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,7 +72,8 @@
         android:layout_marginStart="16dp"
         android:layout_below="@+id/gameName"
         android:layout_toRightOf="@+id/goalsAmount"
-        android:layout_toEndOf="@+id/goalsAmount" />
+        android:layout_toEndOf="@+id/goalsAmount"
+        android:visibility="invisible" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,7 +84,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/goalsText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,7 +96,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/goalsText"
         android:layout_alignLeft="@+id/goalsText"
-        android:layout_alignStart="@+id/goalsText" />
+        android:layout_alignStart="@+id/goalsText"
+        android:visibility="invisible" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -93,7 +108,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/shotsText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,7 +120,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/shotsText"
         android:layout_alignLeft="@+id/shotsText"
-        android:layout_alignStart="@+id/shotsText" />
+        android:layout_alignStart="@+id/shotsText"
+        android:visibility="invisible" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,7 +132,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/assistsText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -126,7 +144,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/assistsText"
         android:layout_alignLeft="@+id/assistsText"
-        android:layout_alignStart="@+id/assistsText" />
+        android:layout_alignStart="@+id/assistsText"
+        android:visibility="invisible" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,7 +156,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/foulsText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -148,7 +168,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/foulsText"
         android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText" />
+        android:layout_alignStart="@+id/foulsText"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -160,7 +181,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/minutesPlayedText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
 
     <TextView
@@ -172,7 +194,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/minutesPlayedText"
         android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText" />
+        android:layout_alignStart="@+id/foulsText"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -184,7 +207,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/savesText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
 
     <TextView
@@ -196,7 +220,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/savesText"
         android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText" />
+        android:layout_alignStart="@+id/foulsText"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -208,7 +233,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/causedTurnoversText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
 
     <TextView
@@ -220,7 +246,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/causedTurnoversText"
         android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText" />
+        android:layout_alignStart="@+id/foulsText"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -232,7 +259,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/turnoversText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -243,7 +271,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/turnoversText"
         android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText" />
+        android:layout_alignStart="@+id/foulsText"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -255,7 +284,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/groundBallsText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -266,7 +296,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/groundBallsText"
         android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText" />
+        android:layout_alignStart="@+id/foulsText"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -278,7 +309,8 @@
         android:paddingLeft="5dp"
         android:layout_alignTop="@+id/drawControlsText"
         android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list" />
+        android:layout_toEndOf="@+id/fragment_game_list"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>

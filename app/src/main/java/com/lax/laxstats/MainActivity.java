@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,12 +18,86 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Button button = (Button) findViewById(R.id.editButton);
         refreshName();
         setContentView(R.layout.activity_main);
         if(gameListFragment.pm.getGames().size()>0) {
             TextView btn = (TextView) findViewById(R.id.noGamesHint);
             if (btn != null)
                 btn.setVisibility(View.GONE);
+            btn = (TextView) findViewById(R.id.noGamesHintLand);
+            if (btn != null)
+                btn.setVisibility(View.GONE);
+            btn = (TextView) findViewById(R.id.gameName);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+
+            btn = (TextView) findViewById(R.id.goalsAmount );
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.goalsText );
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+
+            btn = (TextView) findViewById(R.id.shotsAmount);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.shotsText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.assistsAmount);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.assistsText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.drawControlsAmount);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.drawControlsText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.groundBallsAmount);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.groundBallsText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.causedTurnoversAmount);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.causedTurnoversText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.foulsAmount);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.foulsText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.savesAmount);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.savesText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.minutesplayedAmount);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.minutesPlayedText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.turnoversAmount);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.turnoversText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            if(button != null)
+                button.setVisibility(View.VISIBLE);
+
+
             gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
             if (fragment != null) {
                 fragment.loadPosition(0);
