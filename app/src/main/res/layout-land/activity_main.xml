@@ -43,11 +43,10 @@
         android:layout_height="50dp"
         android:onClick="enterEditGame"
         android:text="Edit..."
-        android:visibility="invisible"
-        android:layout_alignBaseline="@+id/assistsText"
-        android:layout_alignBottom="@+id/assistsText"
-        android:layout_alignRight="@+id/noGamesHintLand"
-        android:layout_alignEnd="@+id/noGamesHintLand" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible" />
         
     <TextView
         android:layout_width="wrap_content"
