@@ -202,8 +202,98 @@ public class MainActivity extends AppCompatActivity {
         game newGame = new game("New Game");
         gameListFragment.pm.addAGame(newGame);
         gameListFragment.adapter.notifyDataSetChanged();
-        if(gameListFragment.pm.getGames().size()==1){
-            TextView btn = (TextView) findViewById(R.id.noGamesHint);
-            btn.setVisibility(View.GONE);}
+        if(gameListFragment.pm.getGames().size()==1) {
+            if (getResources().getConfiguration().orientation == 2){
+            TextView btn = (TextView) findViewById(R.id.noGamesHintLand);
+            btn.setVisibility(View.GONE);
+
+                btn = (TextView) findViewById(R.id.noGamesHint);
+                if (btn != null)
+                    btn.setVisibility(View.GONE);
+                btn = (TextView) findViewById(R.id.noGamesHintLand);
+                if (btn != null)
+                    btn.setVisibility(View.GONE);
+                btn = (TextView) findViewById(R.id.gameName);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+
+                btn = (TextView) findViewById(R.id.goalsAmount );
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.goalsText );
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+
+                btn = (TextView) findViewById(R.id.shotsAmount);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.shotsText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.assistsAmount);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.assistsText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.drawControlsAmount);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.drawControlsText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.groundBallsAmount);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.groundBallsText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.causedTurnoversAmount);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.causedTurnoversText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.foulsAmount);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.foulsText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.savesAmount);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.savesText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.minutesplayedAmount);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.minutesPlayedText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.turnoversAmount);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.turnoversText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                Button button = (Button) findViewById(R.id.editGameButton);
+                if (getResources().getConfiguration().orientation == 2)
+                    button.setVisibility(View.VISIBLE);
+
+
+                gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
+                if (fragment != null) {
+                    fragment.loadPosition(0);
+                }
+                updateStats(0);
+
+            }
+            if (getResources().getConfiguration().orientation == 1){
+                TextView btn = (TextView) findViewById(R.id.noGamesHint);
+                btn.setVisibility(View.GONE);
+            }
+        }
     }
 }
