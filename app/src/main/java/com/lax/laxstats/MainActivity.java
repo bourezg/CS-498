@@ -8,6 +8,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -28,26 +29,48 @@ public class MainActivity extends Activity {
         }
         else
             return;
-        if (getResources().getConfiguration().orientation == 2) {
-            gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
-            if (fragment != null) {
-                fragment.loadPosition(0);
-            }
+        gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
+        if (fragment != null) {
+            fragment.loadPosition(0);
         }
+        updateStats(0);
     }
 
     @Override
     public void onResume(){
         super.onResume();
-        if (getResources().getConfiguration().orientation == 2) {
-            gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
-            if (fragment != null) {
-                fragment.loadPosition(0);
-            }
-        }
+        gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
+        if (fragment != null) {
+            fragment.loadPosition(0);}
+        updateStats(0);
     }
 
+    public void updateStats(int position)
+    {
+        if (getResources().getConfiguration().orientation == 2) {
+                TextView tv = (TextView) findViewById(R.id.gameName);
+                tv.setText(gameListFragment.pList.get(position).gameName);
+                tv = (TextView) findViewById(R.id.goalsAmount );
+                tv.setText(""+gameListFragment.pList.get(position).goals);
+                tv = (TextView) findViewById(R.id.shotsAmount);
+                tv.setText(""+gameListFragment.pList.get(position).shots);
+                tv = (TextView) findViewById(R.id.assistsAmount);
+                tv.setText(""+gameListFragment.pList.get(position).assists);
+                tv = (TextView) findViewById(R.id.drawControlsAmount);
+                tv.setText(""+gameListFragment.pList.get(position).drawControls);
+                tv = (TextView) findViewById(R.id.groundBallsAmount);
+                tv.setText(""+gameListFragment.pList.get(position).groundBalls);
+                tv = (TextView) findViewById(R.id.causedTurnoversAmount);
+                tv.setText(""+gameListFragment.pList.get(position).causedTurnovers);
+                tv = (TextView) findViewById(R.id.foulsAmount);
+                tv.setText(""+gameListFragment.pList.get(position).fouls);
+                tv = (TextView) findViewById(R.id.minutesplayedAmount);
+                tv.setText(""+gameListFragment.pList.get(position).minutesPlayed);
+                tv = (TextView) findViewById(R.id.turnoversAmount);
+                tv.setText(""+gameListFragment.pList.get(position).turnovers);
 
+        }
+    }
 
     public void onItemClick(int position) {
         if (findViewById(R.id.activity_game_list) != null) {
@@ -62,6 +85,7 @@ public class MainActivity extends Activity {
             if (fragment != null) {
                 fragment.loadPosition(position);
             }
+            updateStats(position);
 
         }
 

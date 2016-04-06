@@ -17,7 +17,7 @@ import java.util.List;
 
 public class gameListFragment extends Fragment implements AdapterView.OnItemClickListener {
     public static gameManager pm;
-    List<game> pList;
+    public static List<game> pList;
     public static ArrayAdapter<game> adapter;
     View v;
     @Override
