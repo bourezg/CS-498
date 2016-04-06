@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Button button = (Button) findViewById(R.id.editGameButton);
         refreshName();
         setContentView(R.layout.activity_main);
         if(gameListFragment.pm.getGames().size()>0) {
@@ -94,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
             btn = (TextView) findViewById(R.id.turnoversText);
             if (btn != null)
                 btn.setVisibility(View.VISIBLE);
-            if(button != null)
+            Button button = (Button) findViewById(R.id.editGameButton);
+            if (getResources().getConfiguration().orientation == 2)
                 button.setVisibility(View.VISIBLE);
 
 
