@@ -301,7 +301,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/foulsText"
                     android:layout_alignStart="@+id/foulsText"
-                    android:layout_below="@+id/savesText"
+                    android:layout_below="@+id/minutesPlayedNum"
                     android:text="Caused Turnovers"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="20sp"

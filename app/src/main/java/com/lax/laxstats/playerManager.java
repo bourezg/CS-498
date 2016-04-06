@@ -3,6 +3,7 @@ package com.lax.laxstats;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -72,21 +73,33 @@ public class playerManager extends Activity implements OnItemSelectedListener{
     private void displayNumber()
     {
         EditText tv = (EditText) findViewById(R.id.editPlayerNumber);
-        tv.setOnEditorActionListener(new EditText.OnEditorActionListener(){
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent)
-            {
+        tv.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 boolean handled = false;
-                if(i == EditorInfo.IME_ACTION_DONE)
-                {
+                if (i == EditorInfo.IME_ACTION_DONE) {
                     MainActivity.playerNumber = textView.getText().toString();
 
                     InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                     getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
                     handled = true;
                 }
                 return handled;
             }
         });
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        SharedPreferences db =
+                getSharedPreferences("Database",
+                        Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = db.edit();
+        editor.putString("playerName", MainActivity.playerName);
+        editor.putString("playerNumber", MainActivity.playerNumber);
+        editor.putInt("playerPosition", MainActivity.playerPosition);
+        editor.commit();
+        super.onDestroy();
     }
 }

@@ -23,6 +23,11 @@ public class gameDetailFragment extends Fragment {
         return view;
 
     }
+
+    public void loadData(){
+
+    }
+
     public void loadPosition (int position) {
         game p = games.get(position);
         if (p != null) {

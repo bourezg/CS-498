@@ -1,6 +1,8 @@
 package com.lax.laxstats;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -38,7 +40,6 @@ public class gameListFragment extends Fragment implements AdapterView.OnItemClic
         return v;
 
     }
-
 
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

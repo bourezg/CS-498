@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.KeyEvent;
@@ -81,8 +82,42 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
         gameListFragment.adapter.notifyDataSetChanged();
 
     }
+    
+    public void saveData(){
+
+        SharedPreferences tv =
+                getSharedPreferences("Database",
+                        Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = tv.edit();
+        int position = 0;
+        position = getIntent().getIntExtra("POSITION",0);
+        editor.putString(position + "gameNumber", currGame.getGameNumber());
+        editor.putInt(position + "goals", currGame.goals);
+        editor.putInt(position+"homeScore", currGame.homeScore);
+        editor.putInt(position+"drawControls", currGame.drawControls);
+        editor.putInt(position+"fouls", currGame.fouls);
+        editor.putInt(position+"groundBalls", currGame.groundBalls);
+        editor.putInt(position+"causedTurnovers", currGame.causedTurnovers);
+        editor.putInt(position+"shots", currGame.shots);
+        editor.putInt(position+"turnovers", currGame.turnovers);
+        editor.putInt(position+"awayScore", currGame.awayScore);
+        editor.putInt(position+"assists", currGame.assists);
+        editor.putInt(position+"minutesPlayed",currGame.minutesPlayed);
+        editor.putInt(position+"turnovers",currGame.turnovers);
+        editor.putInt(position+"homeScore",currGame.homeScore);
+        editor.putInt(position + "awayScore", currGame.awayScore);
+        editor.putBoolean(position + "timerSaved", false);
+        editor.putBoolean(position + "running", false);
+        editor.putLong(position + "timer", currGame.timer);
+        editor.putLong(position + "C1", currGame.C1);
+        editor.putLong(position+"C2",currGame.C2);
+
+        editor.commit();
+    }
+    
     @Override
     public void onDestroy(){
+        saveData();
         super.onDestroy();
         gameListFragment.adapter.notifyDataSetChanged();
 

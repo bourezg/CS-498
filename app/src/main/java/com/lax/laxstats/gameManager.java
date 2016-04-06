@@ -27,6 +27,7 @@ public class gameManager {
 
     public void addAGame(game newGameToAdd){
         games.add(newGameToAdd);
+        MainActivity.numGames++;
     }
 
 

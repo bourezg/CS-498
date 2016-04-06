@@ -1,6 +1,8 @@
 package com.lax.laxstats;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,11 +16,13 @@ public class MainActivity extends AppCompatActivity {
     static String playerNumber = "";
     static int playerPosition = 0;
     String playerPositionName;
+    static int numGames;
+    
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        loadData();
         refreshName();
         setContentView(R.layout.activity_main);
         if(gameListFragment.pm.getGames().size()>0) {
@@ -77,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
                 btn.setVisibility(View.VISIBLE);
             btn = (TextView) findViewById(R.id.savesAmount);
             if (btn != null)
-                btn.setVisibility(View.VISIBLE);
+                //btn.setVisibility(View.VISIBLE);
             btn = (TextView) findViewById(R.id.savesText);
             if (btn != null)
-                btn.setVisibility(View.VISIBLE);
+               // btn.setVisibility(View.VISIBLE);
             btn = (TextView) findViewById(R.id.minutesplayedAmount);
             if (btn != null)
                 btn.setVisibility(View.VISIBLE);
@@ -119,8 +123,18 @@ public class MainActivity extends AppCompatActivity {
             }
             updateStats(0);
         }
-
+        loadGames();
+        if(numGames>0)
+            if (getResources().getConfiguration().orientation == 2){
+                TextView btn = (TextView) findViewById(R.id.noGamesHintLand);
+                btn.setVisibility(View.GONE);}
+        else
+            {
+                TextView btn = (TextView) findViewById(R.id.noGamesHint);
+                btn.setVisibility(View.GONE);}
     }
+
+
 
     @Override
     public void onResume(){
@@ -157,9 +171,13 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(playerName + " #" + playerNumber + ", " + playerPositionName);
         else if (playerName != "" && playerNumber == "")
             getSupportActionBar().setTitle(playerName + "'s Stats");
+        else if (playerName == "" && playerNumber != "")
+            getSupportActionBar().setTitle("#"+playerNumber + "'s Stats");
         else
             getSupportActionBar().setTitle("Lax Stats");
     }
+
+
     public void updateStats(int position)
     {
         if (getResources().getConfiguration().orientation == 2) {
@@ -282,10 +300,10 @@ public class MainActivity extends AppCompatActivity {
                     btn.setVisibility(View.VISIBLE);
                 btn = (TextView) findViewById(R.id.savesAmount);
                 if (btn != null)
-                    btn.setVisibility(View.VISIBLE);
+                    //btn.setVisibility(View.VISIBLE);
                 btn = (TextView) findViewById(R.id.savesText);
                 if (btn != null)
-                    btn.setVisibility(View.VISIBLE);
+                    //btn.setVisibility(View.VISIBLE);
                 btn = (TextView) findViewById(R.id.minutesplayedAmount);
                 if (btn != null)
                     btn.setVisibility(View.VISIBLE);
@@ -327,5 +345,82 @@ public class MainActivity extends AppCompatActivity {
                 btn.setVisibility(View.GONE);
             }
         }
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        saveData();
+        super.onDestroy();
+    }
+
+    public void saveData(){
+        SharedPreferences db =
+                getSharedPreferences("Database",
+                        Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = db.edit();
+        editor.putString("playerName", playerName);
+        editor.putString("playerNumber", playerNumber);
+        editor.putInt("playerPosition", playerPosition);
+        if(gameListFragment.pm != null)
+            editor.putInt("numGames", gameListFragment.pm.getGames().size());
+
+        editor.commit();
+
+    }
+    public void loadData(){
+        SharedPreferences db =
+                getSharedPreferences("Database",
+                        Context.MODE_PRIVATE);
+
+        playerName =db.getString("playerName",playerName);
+        playerNumber = db.getString("playerNumber", playerNumber);
+        playerPosition = db.getInt("playerPosition", playerPosition);
+        numGames = db.getInt("numGames",numGames);
+    }
+    
+    public void loadGames(){
+        SharedPreferences db =
+                getSharedPreferences("Database",
+                        Context.MODE_PRIVATE);
+        int ng = numGames;
+        if(numGames==0)
+            return;
+        else if(numGames!=0&& gameListFragment.pm.getGames().size()!=0){
+            return;
+        }
+        else if(gameListFragment.pm.getGames().size()==0 && numGames!=0){
+            for(int i = 0; i < ng; i++)
+            {
+                gameListFragment.pm.addAGame(new game("New Game"));
+                gameListFragment.pm.getGames().get(i).gameName = db.getString(i+"gameName",playerName);
+
+                gameListFragment.pm.getGames().get(i).gameName  = db.getString(i + "gameNumber", "New Game");
+                gameListFragment.pm.getGames().get(i).goals  = db.getInt(i + "goals", 0);
+                gameListFragment.pm.getGames().get(i).homeScore  = db.getInt(i + "homeScore", 0);
+                gameListFragment.pm.getGames().get(i).drawControls  = db.getInt(i + "drawControls", 0);
+                gameListFragment.pm.getGames().get(i).fouls  = db.getInt(i + "fouls", 0);
+                gameListFragment.pm.getGames().get(i).groundBalls  = db.getInt(i + "groundBalls", 0);
+                gameListFragment.pm.getGames().get(i).causedTurnovers  = db.getInt(i + "causedTurnovers", 0);
+                gameListFragment.pm.getGames().get(i).shots  = db.getInt(i + "shots", 0);
+                gameListFragment.pm.getGames().get(i).turnovers  = db.getInt(i + "turnovers", 0);
+                gameListFragment.pm.getGames().get(i).awayScore  = db.getInt(i + "awayScore", 0);
+                gameListFragment.pm.getGames().get(i).assists  = db.getInt(i + "assists", 0);
+                gameListFragment.pm.getGames().get(i).minutesPlayed  = db.getInt(i + "minutesPlayed", 0);
+                gameListFragment.pm.getGames().get(i).homeScore  = db.getInt(i + "homeScore", 0);
+                gameListFragment.pm.getGames().get(i).awayScore  = db.getInt(i + "awayScore", 0);
+                gameListFragment.pm.getGames().get(i).timeSaved  = db.getBoolean(i + "timeSaved", false);
+                gameListFragment.pm.getGames().get(i).running  = db.getBoolean(i + "running", false);
+                gameListFragment.pm.getGames().get(i).timer  = db.getLong(i + "timer", 0);
+                gameListFragment.pm.getGames().get(i).C1  = db.getLong(i + "C1", 0);
+                gameListFragment.pm.getGames().get(i).C2  = db.getLong(i + "C2", 0);
+                
+            }
+            
+        playerName =db.getString("playerName",playerName);
+        playerNumber = db.getString("playerNumber", playerNumber);
+        playerPosition = db.getInt("playerPosition", playerPosition);
+        numGames = db.getInt("numGames",numGames);
+    }
     }
 }
