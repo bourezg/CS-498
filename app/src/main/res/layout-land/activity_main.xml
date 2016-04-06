@@ -1,315 +1,404 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
     <TextView
+        android:id="@+id/noGamesHintLand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hit (+) to add a game"
-        android:textStyle="bold"
-        android:textSize="50sp"
-        android:id="@+id/noGamesHintLand"
         android:layout_centerHorizontal="true"
-        />
+        android:text="Hit (+) to add a game"
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
-    <fragment android:name="com.lax.laxstats.gameListFragment"
+    <fragment
         android:id="@+id/fragment_game_list"
+        android:name="com.lax.laxstats.gameListFragment"
         android:layout_width="200dp"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
     <Button
+        android:id="@+id/editButton"
         android:layout_width="wrap_content"
         android:layout_height="85dp"
-        android:background="@drawable/round_button"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="+"
-        android:textSize="30dp"
-        android:onClick="createNewGame"
-        android:textColor="#fff"
-        android:layout_gravity="top|right"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/editButton" />
+        android:layout_gravity="top|right"
+        android:background="@drawable/round_button"
+        android:gravity="center_vertical|center_horizontal"
+        android:onClick="createNewGame"
+        android:text="+"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        />
 
     <Button
         android:id="@+id/editGameButton"
         android:layout_width="70dp"
         android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:onClick="enterEditGame"
         android:text="Edit..."
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:visibility="invisible" />
-        
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Game Name"
-        android:id="@+id/gameName"
-        android:textSize="50sp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="7dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Goals"
-        android:id="@+id/goalsText"
-        android:textSize="20sp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_below="@+id/gameName"
-        android:layout_toRightOf="@+id/goalsAmount"
-        android:layout_toEndOf="@+id/goalsAmount"
-        android:visibility="invisible" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/goalsAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/goalsText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        android:layout_weight=
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Shots"
-        android:id="@+id/shotsText"
-        android:textSize="20sp"
-        android:layout_below="@+id/goalsText"
-        android:layout_alignLeft="@+id/goalsText"
-        android:layout_alignStart="@+id/goalsText"
-        android:visibility="invisible" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/shotsAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/shotsText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+        <ScrollView
+            android:layout_width="390dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:transitionGroup="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Assists"
-        android:id="@+id/assistsText"
-        android:textSize="20sp"
-        android:layout_below="@+id/shotsText"
-        android:layout_alignLeft="@+id/shotsText"
-        android:layout_alignStart="@+id/shotsText"
-        android:visibility="invisible" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/assistsAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/assistsText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Fouls"
-        android:id="@+id/foulsText"
-        android:textSize="20sp"
-        android:layout_below="@+id/assistsText"
-        android:layout_alignLeft="@+id/assistsText"
-        android:layout_alignStart="@+id/assistsText"
-        android:visibility="invisible" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/foulsAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/foulsText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+                <TextView
+                    android:id="@+id/gameName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="Game Name"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="50sp"
+                    android:visibility="invisible"
+                    android:layout_alignParentBottom="false"
+                    android:paddingBottom="3dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Minutes Played"
-        android:id="@+id/minutesPlayedText"
-        android:textSize="20sp"
-        android:layout_below="@+id/foulsText"
-        android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText"
-        android:visibility="invisible" />
+                <TextView
+                    android:id="@+id/HomeScoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Home:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="30sp"
+                    android:visibility="invisible"
+                    android:paddingBottom="3dp"
+                    android:layout_below="@+id/gameName"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <TextView
+                    android:id="@+id/HomeScoreNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="30dp"
+                    android:visibility="invisible"
+                    android:paddingBottom="3dp"
+                    android:layout_alignTop="@+id/HomeScoreText"
+                    android:layout_toRightOf="@+id/HomeScoreText"
+                    android:layout_toEndOf="@+id/HomeScoreText"
+                    android:paddingLeft="10dp" />
+                <TextView
+                    android:id="@+id/AwayScoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Away:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="30dp"
+                    android:visibility="invisible"
+                    android:paddingBottom="3dp"
+                    android:layout_below="@+id/gameName"
+                    android:layout_toRightOf="@+id/causedTurnoversText"
+                    android:layout_toEndOf="@+id/causedTurnoversText" />
+                <TextView
+                    android:id="@+id/AwayScoreNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="35dp"
+                    android:visibility="invisible"
+                    android:paddingBottom="3dp"
+                    android:layout_alignTop="@+id/AwayScoreText"
+                    android:layout_toRightOf="@+id/AwayScoreText"
+                    android:layout_toEndOf="@+id/AwayScoreText"
+                    android:paddingLeft="10dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/minutesplayedAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/minutesPlayedText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+                <TextView
+                    android:id="@+id/minutesPlayed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/HomeScoreText"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@+id/goalsAmount"
+                    android:layout_toRightOf="@+id/goalsAmount"
+                    android:text="Goals"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
 
+                <TextView
+                    android:id="@+id/goalsAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Saves"
-        android:id="@+id/savesText"
-        android:textSize="20sp"
-        android:layout_below="@+id/minutesPlayedText"
-        android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText"
-        android:visibility="invisible" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignTop="@+id/minutesPlayed"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/savesAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/savesText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+                <TextView
+                    android:id="@+id/shotsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/minutesPlayed"
+                    android:layout_alignStart="@+id/minutesPlayed"
+                    android:layout_below="@+id/minutesPlayed"
+                    android:text="Shots"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
 
+                <TextView
+                    android:id="@+id/shotsAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Caused Turnovers"
-        android:id="@+id/causedTurnoversText"
-        android:textSize="20sp"
-        android:layout_below="@+id/savesText"
-        android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText"
-        android:visibility="invisible" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignTop="@+id/shotsText"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/causedTurnoversAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/causedTurnoversText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+                <TextView
+                    android:id="@+id/assistsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/shotsText"
+                    android:layout_alignStart="@+id/shotsText"
+                    android:layout_below="@+id/shotsText"
+                    android:text="Assists"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
 
+                <TextView
+                    android:id="@+id/assistsAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Turnovers"
-        android:id="@+id/turnoversText"
-        android:textSize="20sp"
-        android:layout_below="@+id/causedTurnoversText"
-        android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText"
-        android:visibility="invisible" />
+                    android:layout_alignParentLeft="true"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/turnoversAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/turnoversText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+                    android:layout_alignTop="@+id/assistsText"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Ground Balls"
-        android:id="@+id/groundBallsText"
-        android:textSize="20sp"
-        android:layout_below="@+id/turnoversText"
-        android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText"
-        android:visibility="invisible" />
+                <TextView
+                    android:id="@+id/foulsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/assistsText"
+                    android:layout_alignStart="@+id/assistsText"
+                    android:layout_below="@+id/assistsText"
+                    android:text="Fouls"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/groundBallsAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/groundBallsText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+                <TextView
+                    android:id="@+id/foulsAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Draw Controls"
-        android:id="@+id/drawControlsText"
-        android:textSize="20sp"
-        android:layout_below="@+id/groundBallsText"
-        android:layout_alignLeft="@+id/foulsText"
-        android:layout_alignStart="@+id/foulsText"
-        android:visibility="invisible" />
+                    android:layout_alignParentLeft="true"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp"
-        android:text="0"
-        android:id="@+id/drawControlsAmount"
-        android:paddingLeft="5dp"
-        android:layout_alignTop="@+id/drawControlsText"
-        android:layout_toRightOf="@+id/fragment_game_list"
-        android:layout_toEndOf="@+id/fragment_game_list"
-        android:visibility="invisible" />
+                    android:layout_alignTop="@+id/foulsText"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/minutesPlayedNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/foulsText"
+                    android:layout_alignStart="@+id/foulsText"
+                    android:layout_below="@+id/foulsText"
+                    android:text="Minutes Played"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/minutesplayedAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentLeft="true"
+
+                    android:layout_alignTop="@+id/minutesPlayedNum"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
 
 
+                <TextView
+                    android:id="@+id/savesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/foulsText"
+                    android:layout_alignStart="@+id/foulsText"
+                    android:layout_below="@+id/minutesPlayedNum"
+                    android:text="Saves"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/savesAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentLeft="true"
+
+                    android:layout_alignTop="@+id/savesText"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+
+                <TextView
+                    android:id="@+id/causedTurnoversText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/foulsText"
+                    android:layout_alignStart="@+id/foulsText"
+                    android:layout_below="@+id/savesText"
+                    android:text="Caused Turnovers"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/causedTurnoversAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentLeft="true"
+
+                    android:layout_alignTop="@+id/causedTurnoversText"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+
+                <TextView
+                    android:id="@+id/turnoversText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/foulsText"
+                    android:layout_alignStart="@+id/foulsText"
+                    android:layout_below="@+id/causedTurnoversText"
+                    android:text="Turnovers"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/turnoversAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentLeft="true"
+
+                    android:layout_alignTop="@+id/turnoversText"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/groundBallsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/foulsText"
+                    android:layout_alignStart="@+id/foulsText"
+                    android:layout_below="@+id/turnoversText"
+                    android:text="Ground Balls"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/groundBallsAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentLeft="true"
+
+                    android:layout_alignTop="@+id/groundBallsText"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/drawControlsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/foulsText"
+                    android:layout_alignStart="@+id/foulsText"
+                    android:layout_below="@+id/groundBallsText"
+                    android:text="Draw Controls"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/drawControlsAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignTop="@+id/drawControlsText"
+                    android:paddingLeft="5dp"
+                    android:text="0"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
 </RelativeLayout>

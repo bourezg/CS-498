@@ -249,8 +249,9 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
     public void decreaseGoals(View view) {
         if(currGame.goals  == 0)
             return;
+        if(currGame.shots > 0)
+            currGame.shots--;
         currGame.goals--;
-        currGame.shots--;
         currGame.homeScore--;
 
         display(currGame.goals,"goals");
@@ -285,12 +286,22 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
         i.setType("text/plain");
         i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
         i.putExtra(Intent.EXTRA_SUBJECT, currGame.toString()+" Stats");
-        i.putExtra(Intent.EXTRA_TEXT   , "In "+currGame.toString()+" the final score was Home: "+currGame.homeScore+" Away: "+currGame.awayScore+"\nPlayer Name"+" had the following stats:\n"+
+        String playern = "";
+        if(!MainActivity.playerName.equals(""))
+        {
+            playern = MainActivity.playerName+" had the following stats:"+"\n";
+        }
+        else
+        {
+            playern = "The stats of the game were:\n";
+        }
+
+        i.putExtra(Intent.EXTRA_TEXT   , "In "+currGame.toString()+" the final score was Home: "+currGame.homeScore+" Away: "+currGame.awayScore+"\n" +playern+
                                 "Shots: "+ currGame.shots+"\n"+
                                 "Goals: "+ currGame.goals+"\n"+
                                 "Assists: "+ currGame.assists+"\n"+
                                 "Ground Balls: "+ currGame.groundBalls+"\n"+
-                                "Draw Control: "+ currGame.drawControls+"\n"+
+                                "Draw Controls: "+ currGame.drawControls+"\n"+
                                 "Fouls: "+ currGame.fouls+"\n"+
                                 "Turnovers: "+ currGame.turnovers+"\n"+
                                 "Caused Turnovers: "+ currGame.causedTurnovers+"\n"+
@@ -337,39 +348,39 @@ public class gameDetailActivity extends Activity implements View.OnClickListener
             switch(name)
             {
                 case "minutesPlayed":
-                    TextView displayMinutesPlayed = (TextView) findViewById(R.id.MinutesPlayedNumber);
+                    TextView displayMinutesPlayed = (TextView) findViewById(R.id.minutesPlayedNum);
                     displayMinutesPlayed.setText("" + number);
                     break;
                 case "turnovers":
-                    TextView displayTurnovers = (TextView) findViewById(R.id.turnoversNumber);
+                    TextView displayTurnovers = (TextView) findViewById(R.id.turnoversNum);
                     displayTurnovers.setText("" + number);
                     break;
                 case "causedTurnovers":
-                    TextView displayCausedTurnovers = (TextView) findViewById(R.id.causedTurnoversNumber);
+                    TextView displayCausedTurnovers = (TextView) findViewById(R.id.causedTurnoversNum);
                     displayCausedTurnovers.setText("" + number);
                     break;
                 case "fouls":
-                    TextView displayFouls = (TextView) findViewById(R.id.foulsNumber);
+                    TextView displayFouls = (TextView) findViewById(R.id.foulsNum);
                     displayFouls.setText("" + number);
                     break;
                 case "assists":
-                    TextView displayAssists = (TextView) findViewById(R.id.assistsNumber);
+                    TextView displayAssists = (TextView) findViewById(R.id.assistsNum);
                     displayAssists.setText("" + number);
                     break;
                 case "drawControls":
-                    TextView displayDrawControls = (TextView) findViewById(R.id.drawControlsNumber);
+                    TextView displayDrawControls = (TextView) findViewById(R.id.drawControllNum);
                     displayDrawControls.setText("" + number);
                     break;
                 case "groundBalls":
-                    TextView displayGroundBalls = (TextView) findViewById(R.id.groundBallsNumber);
+                    TextView displayGroundBalls = (TextView) findViewById(R.id.groundBallsNum);
                     displayGroundBalls.setText("" + number);
                     break;
                 case "shots":
-                    TextView displayShots = (TextView) findViewById(R.id.shotsNumber);
+                    TextView displayShots = (TextView) findViewById(R.id.shotsNum);
                     displayShots.setText("" + number);
                     break;
                 case "goals":
-                    TextView displayGoals = (TextView) findViewById(R.id.goalsNumber);
+                    TextView displayGoals = (TextView) findViewById(R.id.goalsNum);
                     displayGoals.setText("" + number);
                     break;
                 case "awayScore":

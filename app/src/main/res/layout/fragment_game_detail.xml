@@ -17,25 +17,25 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Goals: "
+        android:text="Minutes Played: "
         android:layout_below="@+id/shotsText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/goalsText" />
+        android:id="@+id/minutesPlayed" />
 
     <Button
         android:id="@+id/decrease"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="decreaseMinutesPlayed"
+        android:onClick="decreaseShots"
         android:text="-"
         android:layout_toLeftOf="@+id/increase"
         android:layout_toStartOf="@+id/increase"
         android:layout_alignBottom="@+id/turnoversText"
-        android:layout_alignTop="@+id/MinutesPlayedNumber" />
+        android:layout_alignTop="@+id/shotsNum" />
 
     <TextView
-        android:id="@+id/MinutesPlayedNumber"
+        android:id="@+id/shotsNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -43,14 +43,14 @@
         android:textSize="20sp"
         android:layout_below="@+id/stop"
         android:layout_alignTop="@+id/turnoversText"
-        android:layout_alignLeft="@+id/turnoversNumber"
-        android:layout_alignStart="@+id/turnoversNumber" />
+        android:layout_alignLeft="@+id/goalsNum"
+        android:layout_alignStart="@+id/goalsNum" />
 
     <Button
         android:id="@+id/increase"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="increaseMinutesPlayed"
+        android:onClick="increaseShots"
         android:text="+"
         android:layout_alignTop="@+id/decrease"
         android:layout_alignRight="@+id/editGameName"
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Shots: "
+        android:text="Caused Turnovers: "
         android:layout_below="@+id/groundBallsText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Assists: "
+        android:text="Draw Controls: "
         android:layout_below="@+id/foulsText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Draw Controls: "
+        android:text="Fouls: "
         android:id="@+id/drawControlsText"
         android:layout_below="@+id/assistsText"
         android:layout_alignParentLeft="true"
@@ -99,7 +99,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Ground Balls: "
+        android:text="Turnovers: "
         android:id="@+id/groundBallsText"
         android:layout_below="@+id/drawControlsText"
         android:layout_alignParentLeft="true"
@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Caused Turnovers: "
+        android:text="Assists:"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -121,7 +121,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Turnovers: "
+        android:text="Goals:"
         android:id="@+id/textView"
         android:layout_below="@+id/turnoversText"
         android:layout_alignParentLeft="true"
@@ -132,7 +132,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Fouls: "
+        android:text="Ground Balls:"
         android:layout_below="@+id/causedTurnoversText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -143,7 +143,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingBottom="15dp"
-        android:text="Minutes Played: "
+        android:text="Shots:"
         android:id="@+id/turnoversText"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/stop"
@@ -154,7 +154,7 @@
         android:id="@+id/turnoversMinusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="decreaseTurnovers"
+        android:onClick="decreaseGoals"
         android:text="-"
         android:layout_below="@+id/decrease"
         android:layout_alignLeft="@+id/decrease"
@@ -167,7 +167,7 @@
         android:id="@+id/turnoversPlusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="increaseTurnovers"
+        android:onClick="increaseGoals"
         android:text="+"
         android:layout_alignBottom="@+id/turnoversMinusButton"
         android:layout_toRightOf="@+id/turnoversMinusButton"
@@ -178,7 +178,7 @@
         android:id="@+id/causedTurnoversPlusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="increaseCausedTurnovers"
+        android:onClick="increaseAssists"
         android:text="+"
         android:layout_alignTop="@+id/causedTurnoversText"
         android:layout_toRightOf="@+id/turnoversMinusButton"
@@ -189,7 +189,7 @@
         android:id="@+id/foulsPlusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="increaseFouls"
+        android:onClick="increaseGroundBalls"
         android:text="+"
         android:layout_below="@+id/causedTurnoversText"
         android:layout_alignLeft="@+id/causedTurnoversPlusButton"
@@ -200,7 +200,7 @@
         android:id="@+id/assistsPlusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="increaseAssists"
+        android:onClick="increaseDrawControls"
         android:text="+"
         android:layout_below="@+id/foulsPlusButton"
         android:layout_alignLeft="@+id/foulsPlusButton"
@@ -211,7 +211,7 @@
         android:id="@+id/drawControlsPlusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="increaseDrawControls"
+        android:onClick="increaseFouls"
         android:text="+"
         android:layout_alignLeft="@+id/assistsPlusButton"
         android:layout_alignStart="@+id/assistsPlusButton"
@@ -222,7 +222,7 @@
         android:id="@+id/groundBallsPlusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="increaseGroundBalls"
+        android:onClick="increaseTurnovers"
         android:text="+"
         android:layout_below="@+id/drawControlsText"
         android:layout_alignLeft="@+id/drawControlsPlusButton"
@@ -233,7 +233,7 @@
         android:id="@+id/shotsPlusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="increaseShots"
+        android:onClick="increaseCausedTurnovers"
         android:text="+"
         android:layout_below="@+id/groundBallsText"
         android:layout_alignLeft="@+id/groundBallsPlusButton"
@@ -244,18 +244,18 @@
         android:id="@+id/goalsPlusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="increaseGoals"
+        android:onClick="increaseMinutesPlayed"
         android:text="+"
         android:layout_below="@+id/shotsText"
         android:layout_alignLeft="@+id/shotsPlusButton"
         android:layout_alignStart="@+id/shotsPlusButton"
-        android:layout_alignBottom="@+id/goalsText" />
+        android:layout_alignBottom="@+id/minutesPlayed" />
 
     <Button
         android:id="@+id/causedTurnoversMinusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="decreaseCausedTurnovers"
+        android:onClick="decreaseAssists"
         android:text="-"
         android:layout_alignTop="@+id/causedTurnoversPlusButton"
         android:layout_alignLeft="@+id/turnoversMinusButton"
@@ -266,7 +266,7 @@
         android:id="@+id/foulsMinusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="decreaseFouls"
+        android:onClick="decreaseGroundBalls"
         android:text="-"
         android:layout_below="@+id/causedTurnoversPlusButton"
         android:layout_alignLeft="@+id/causedTurnoversMinusButton"
@@ -277,7 +277,7 @@
         android:id="@+id/assistsMinusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="decreaseAssists"
+        android:onClick="decreaseDrawControls"
         android:text="-"
         android:layout_below="@+id/foulsPlusButton"
         android:layout_alignLeft="@+id/foulsMinusButton"
@@ -288,7 +288,7 @@
         android:id="@+id/drawControlsMinusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="decreaseDrawControls"
+        android:onClick="decreaseFouls"
         android:text="-"
         android:layout_alignTop="@+id/drawControlsPlusButton"
         android:layout_alignLeft="@+id/assistsMinusButton"
@@ -299,7 +299,7 @@
         android:id="@+id/groundBallsMinusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="decreaseGroundBalls"
+        android:onClick="decreaseTurnovers"
         android:text="-"
         android:layout_below="@+id/drawControlsPlusButton"
         android:layout_alignLeft="@+id/drawControlsMinusButton"
@@ -310,7 +310,7 @@
         android:id="@+id/shotsMinusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="decreaseShots"
+        android:onClick="decreaseCausedTurnovers"
         android:text="-"
         android:layout_alignTop="@+id/shotsPlusButton"
         android:layout_alignLeft="@+id/groundBallsMinusButton"
@@ -321,7 +321,7 @@
         android:id="@+id/goalsMinusButton"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:onClick="decreaseGoals"
+        android:onClick="decreaseMinutesPlayed"
         android:text="-"
         android:layout_below="@+id/shotsPlusButton"
         android:layout_alignLeft="@+id/shotsMinusButton"
@@ -329,18 +329,18 @@
         android:layout_alignBottom="@+id/goalsPlusButton" />
 
     <TextView
-        android:id="@+id/turnoversNumber"
+        android:id="@+id/goalsNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_below="@+id/decrease"
-        android:layout_alignLeft="@+id/foulsNumber"
-        android:layout_alignStart="@+id/foulsNumber" />
+        android:layout_alignLeft="@+id/groundBallsNum"
+        android:layout_alignStart="@+id/groundBallsNum" />
 
     <TextView
-        android:id="@+id/causedTurnoversNumber"
+        android:id="@+id/assistsNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -348,11 +348,11 @@
         android:textSize="20sp"
         android:layout_alignBaseline="@+id/causedTurnoversMinusButton"
         android:layout_alignBottom="@+id/causedTurnoversMinusButton"
-        android:layout_alignLeft="@+id/turnoversNumber"
-        android:layout_alignStart="@+id/turnoversNumber" />
+        android:layout_alignLeft="@+id/goalsNum"
+        android:layout_alignStart="@+id/goalsNum" />
 
     <TextView
-        android:id="@+id/foulsNumber"
+        android:id="@+id/groundBallsNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -365,7 +365,7 @@
         android:layout_marginEnd="32dp" />
 
     <TextView
-        android:id="@+id/assistsNumber"
+        android:id="@+id/drawControllNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -373,42 +373,42 @@
         android:textSize="20sp"
         android:layout_alignBaseline="@+id/assistsMinusButton"
         android:layout_alignBottom="@+id/assistsMinusButton"
-        android:layout_alignLeft="@+id/foulsNumber"
-        android:layout_alignStart="@+id/foulsNumber" />
+        android:layout_alignLeft="@+id/groundBallsNum"
+        android:layout_alignStart="@+id/groundBallsNum" />
 
     <TextView
-        android:id="@+id/drawControlsNumber"
+        android:id="@+id/foulsNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_alignTop="@+id/drawControlsMinusButton"
-        android:layout_alignLeft="@+id/assistsNumber"
-        android:layout_alignStart="@+id/assistsNumber" />
+        android:layout_alignLeft="@+id/drawControllNum"
+        android:layout_alignStart="@+id/drawControllNum" />
 
     <TextView
-        android:id="@+id/shotsNumber"
+        android:id="@+id/causedTurnoversNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_below="@+id/groundBallsMinusButton"
-        android:layout_alignLeft="@+id/drawControlsNumber"
-        android:layout_alignStart="@+id/drawControlsNumber" />
+        android:layout_alignLeft="@+id/foulsNum"
+        android:layout_alignStart="@+id/foulsNum" />
 
     <TextView
-        android:id="@+id/goalsNumber"
+        android:id="@+id/minutesPlayedNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_alignBaseline="@+id/goalsText"
-        android:layout_alignBottom="@+id/goalsText"
-        android:layout_alignLeft="@+id/shotsNumber"
-        android:layout_alignStart="@+id/shotsNumber" />
+        android:layout_alignBaseline="@+id/minutesPlayed"
+        android:layout_alignBottom="@+id/minutesPlayed"
+        android:layout_alignLeft="@+id/causedTurnoversNum"
+        android:layout_alignStart="@+id/causedTurnoversNum" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -451,18 +451,21 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="40sp"
-        android:layout_alignBottom="@+id/homeDec"
-        android:layout_toRightOf="@+id/foulsText"
-        android:layout_toEndOf="@+id/foulsText" />
+        android:gravity="center"
+        android:layout_alignLeft="@+id/homeScoreTitle"
+        android:layout_alignStart="@+id/homeScoreTitle"
+        android:layout_alignRight="@+id/homeScoreTitle"
+        android:layout_alignEnd="@+id/homeScoreTitle"
+        android:layout_below="@+id/homeScoreTitle" />
     <TextView
         android:id="@+id/awayScoreTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AWAY"
         android:textSize="20sp"
-        android:layout_above="@+id/awayScoreNumber"
-        android:layout_alignLeft="@+id/start"
-        android:layout_alignStart="@+id/start" />
+        android:layout_below="@+id/editGameName"
+        android:layout_toRightOf="@+id/awayDec"
+        android:layout_toEndOf="@+id/awayDec" />
     <TextView
         android:id="@+id/awayScoreNumber"
         android:layout_width="wrap_content"
@@ -471,10 +474,13 @@
         android:textSize="40sp"
         android:editable="false"
         android:gravity="center"
-        android:layout_alignTop="@+id/awayDec"
+        android:freezesText="true"
+        android:layout_alignBottom="@+id/homeScoreNumber"
+        android:layout_alignRight="@+id/awayScoreTitle"
+        android:layout_alignEnd="@+id/awayScoreTitle"
+        android:layout_alignTop="@+id/homeScoreNumber"
         android:layout_toRightOf="@+id/awayDec"
-        android:layout_alignRight="@+id/decrease"
-        android:layout_alignEnd="@+id/decrease" />
+        android:layout_toEndOf="@+id/awayDec" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -491,11 +497,12 @@
         android:onClick="startTimer"
         android:text="Start"
         android:id="@+id/start"
-        android:layout_below="@+id/timerText"
-        android:layout_alignLeft="@+id/decrease"
-        android:layout_alignStart="@+id/decrease"
         android:layout_alignRight="@+id/increase"
-        android:layout_alignEnd="@+id/increase" />
+        android:layout_alignEnd="@+id/increase"
+        android:layout_toEndOf="@+id/awayDec"
+        android:layout_below="@+id/chronometer2"
+        android:layout_alignBottom="@+id/chronometer"
+        android:layout_toRightOf="@+id/awayDec" />
 
     <Button
         android:layout_width="wrap_content"
@@ -503,11 +510,12 @@
         android:onClick="stopTimer"
         android:text="Stop"
         android:id="@+id/stop"
-        android:layout_below="@+id/timerText"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/chronometer"
+        android:layout_below="@+id/chronometer2"
+        android:layout_alignRight="@+id/groundBallsText"
+        android:layout_alignEnd="@+id/groundBallsText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -515,11 +523,11 @@
         android:text="0"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:id="@+id/groundBallsNumber"
+        android:id="@+id/turnoversNum"
         android:layout_alignBaseline="@+id/groundBallsText"
         android:layout_alignBottom="@+id/groundBallsText"
-        android:layout_alignLeft="@+id/drawControlsNumber"
-        android:layout_alignStart="@+id/drawControlsNumber" />
+        android:layout_alignLeft="@+id/foulsNum"
+        android:layout_alignStart="@+id/foulsNum" />
 
     <Chronometer
         android:layout_width="wrap_content"
@@ -543,9 +551,9 @@
         android:text="+"
         android:onClick="increaseHomeScore"
         android:id="@+id/homeInc"
-        android:layout_alignTop="@+id/homeScoreNumber"
-        android:layout_toRightOf="@+id/homeScoreTitle"
-        android:layout_toEndOf="@+id/homeScoreTitle" />
+        android:layout_alignRight="@+id/player_button"
+        android:layout_alignEnd="@+id/player_button"
+        android:layout_below="@+id/homeScoreTitle" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -565,9 +573,9 @@
         android:text="-"
         android:id="@+id/awayDec"
         android:onClick="decreaseAwayScore"
-        android:layout_alignTop="@+id/homeInc"
-        android:layout_alignLeft="@+id/MinutesPlayedNumber"
-        android:layout_alignStart="@+id/MinutesPlayedNumber" />
+        android:layout_alignLeft="@+id/shotsNum"
+        android:layout_alignStart="@+id/shotsNum"
+        android:layout_below="@+id/homeScoreTitle" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -576,9 +584,9 @@
         android:text="+"
         android:id="@+id/awayInc"
         android:onClick="increaseAwayScore"
-        android:layout_alignTop="@+id/awayScoreNumber"
         android:layout_toRightOf="@+id/awayScoreTitle"
-        android:layout_toEndOf="@+id/awayScoreTitle" />
+        android:layout_toEndOf="@+id/awayScoreTitle"
+        android:layout_below="@+id/homeScoreTitle" />
 
     <Button
         android:layout_width="wrap_content"
@@ -596,8 +604,8 @@
         android:text="Edit Player Info"
         android:id="@+id/player_button"
         android:onClick="playerButtonClick"
-        android:layout_below="@+id/goalsText"
-        android:layout_alignLeft="@+id/goalsText" />
+        android:layout_below="@+id/minutesPlayed"
+        android:layout_alignLeft="@+id/minutesPlayed" />
 
 </RelativeLayout>
 </ScrollView>

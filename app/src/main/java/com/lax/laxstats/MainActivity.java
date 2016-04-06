@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             btn = (TextView) findViewById(R.id.goalsAmount );
             if (btn != null)
                 btn.setVisibility(View.VISIBLE);
-            btn = (TextView) findViewById(R.id.goalsText );
+            btn = (TextView) findViewById(R.id.minutesPlayed);
             if (btn != null)
                 btn.setVisibility(View.VISIBLE);
 
@@ -84,13 +84,28 @@ public class MainActivity extends AppCompatActivity {
             btn = (TextView) findViewById(R.id.minutesplayedAmount);
             if (btn != null)
                 btn.setVisibility(View.VISIBLE);
-            btn = (TextView) findViewById(R.id.minutesPlayedText);
+            btn = (TextView) findViewById(R.id.minutesPlayedNum);
             if (btn != null)
                 btn.setVisibility(View.VISIBLE);
             btn = (TextView) findViewById(R.id.turnoversAmount);
             if (btn != null)
                 btn.setVisibility(View.VISIBLE);
             btn = (TextView) findViewById(R.id.turnoversText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.turnoversText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.HomeScoreNum);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.HomeScoreText);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.AwayScoreNum);
+            if (btn != null)
+                btn.setVisibility(View.VISIBLE);
+            btn = (TextView) findViewById(R.id.AwayScoreText);
             if (btn != null)
                 btn.setVisibility(View.VISIBLE);
             Button button = (Button) findViewById(R.id.editGameButton);
@@ -168,6 +183,11 @@ public class MainActivity extends AppCompatActivity {
                 tv.setText(""+gameListFragment.pList.get(position).minutesPlayed);
                 tv = (TextView) findViewById(R.id.turnoversAmount);
                 tv.setText(""+gameListFragment.pList.get(position).turnovers);
+                tv = (TextView) findViewById(R.id.HomeScoreNum);
+                tv.setText(""+gameListFragment.pList.get(position).homeScore);
+                tv = (TextView) findViewById(R.id.AwayScoreNum);
+                tv.setText(""+gameListFragment.pList.get(position).awayScore);
+
 
         }
     }
@@ -220,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
                 btn = (TextView) findViewById(R.id.goalsAmount );
                 if (btn != null)
                     btn.setVisibility(View.VISIBLE);
-                btn = (TextView) findViewById(R.id.goalsText );
+                btn = (TextView) findViewById(R.id.minutesPlayed);
                 if (btn != null)
                     btn.setVisibility(View.VISIBLE);
 
@@ -269,13 +289,25 @@ public class MainActivity extends AppCompatActivity {
                 btn = (TextView) findViewById(R.id.minutesplayedAmount);
                 if (btn != null)
                     btn.setVisibility(View.VISIBLE);
-                btn = (TextView) findViewById(R.id.minutesPlayedText);
+                btn = (TextView) findViewById(R.id.minutesPlayedNum);
                 if (btn != null)
                     btn.setVisibility(View.VISIBLE);
                 btn = (TextView) findViewById(R.id.turnoversAmount);
                 if (btn != null)
                     btn.setVisibility(View.VISIBLE);
                 btn = (TextView) findViewById(R.id.turnoversText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.HomeScoreNum);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.HomeScoreText);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.AwayScoreNum);
+                if (btn != null)
+                    btn.setVisibility(View.VISIBLE);
+                btn = (TextView) findViewById(R.id.AwayScoreText);
                 if (btn != null)
                     btn.setVisibility(View.VISIBLE);
                 Button button = (Button) findViewById(R.id.editGameButton);
