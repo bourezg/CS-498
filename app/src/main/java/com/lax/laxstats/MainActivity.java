@@ -1,50 +1,75 @@
 package com.lax.laxstats;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.Display;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     Intent intent;
     int savedPosition;
     static String playerName = "";
     static String playerNumber = "";
     static int playerPosition = 0;
+    String playerPositionName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshName();
         setContentView(R.layout.activity_main);
         if(gameListFragment.pm.getGames().size()>0) {
             TextView btn = (TextView) findViewById(R.id.noGamesHint);
             if (btn != null)
                 btn.setVisibility(View.GONE);
+            gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
+            if (fragment != null) {
+                fragment.loadPosition(0);
+            }
+            updateStats(0);
         }
-        else
-            return;
-        gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
-        if (fragment != null) {
-            fragment.loadPosition(0);
-        }
-        updateStats(0);
+
     }
 
     @Override
     public void onResume(){
         super.onResume();
+        refreshName();
         gameDetailFragment fragment = (gameDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_game_detail);
-        if (fragment != null) {
-            fragment.loadPosition(0);}
-        updateStats(0);
+        if(gameListFragment.pm.getGames().size()>0) {
+            if (fragment != null) {
+                fragment.loadPosition(0);
+            }
+            updateStats(0);
+        }
     }
 
+    void refreshName(){
+        switch(playerPosition){
+            case 0:
+                playerPositionName = "Attack";
+                break;
+            case 1:
+                playerPositionName = "Center";
+                break;
+            case 2:
+                playerPositionName = "Defense";
+                break;
+            case 3:
+                playerPositionName = "Goalie";
+                break;
+            case 4:
+                playerPositionName = "Midfield";
+                break;
+        }
+        if(playerName != "" && playerNumber != "")
+            getSupportActionBar().setTitle(playerName + " #" + playerNumber + ", " + playerPositionName);
+        else if (playerName != "" && playerNumber == "")
+            getSupportActionBar().setTitle(playerName + "'s Stats");
+        else
+            getSupportActionBar().setTitle("Lax Stats");
+    }
     public void updateStats(int position)
     {
         if (getResources().getConfiguration().orientation == 2) {
@@ -73,11 +98,12 @@ public class MainActivity extends Activity {
     }
 
     public void onItemClick(int position) {
+        savedPosition = position;
+
         if (findViewById(R.id.activity_game_list) != null) {
             intent = new Intent(this, gameDetailActivity.class);
             intent.putExtra("POSITION", position);
             startActivity(intent);
-            savedPosition = position;
 
         }
         else {
