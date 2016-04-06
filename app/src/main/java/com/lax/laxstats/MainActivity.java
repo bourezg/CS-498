@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Button button = (Button) findViewById(R.id.editButton);
+        Button button = (Button) findViewById(R.id.editGameButton);
         refreshName();
         setContentView(R.layout.activity_main);
         if(gameListFragment.pm.getGames().size()>0) {
